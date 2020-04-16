@@ -10,6 +10,7 @@ BackEnd
         -> Route and define Route
         -> config
         -> DB connection 
+        -> Schema
         -> adding  functionality in API
 
 ******** functionality in API *********
