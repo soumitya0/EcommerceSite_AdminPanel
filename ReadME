@@ -12,6 +12,10 @@ BackEnd
         -> DB connection 
         -> Schema
         -> adding  functionality in API
+        -> express validator (Schema to check all the data give or not)
+        -> with the user with same email then we will return Error if not then Create a new Schema     
+        -> Bcrypt to hash the password
+        -> JWT - paylooad and secret  (secret is in config)
 
 ******** functionality in API *********
 

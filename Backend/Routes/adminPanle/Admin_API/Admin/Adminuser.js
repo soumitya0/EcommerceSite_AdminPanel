@@ -14,6 +14,10 @@ const SchemaAdmin = require("../../../../Models/Admin_Panel/AdminSchema/SchemaAd
 ////bycrypt
 const bcrypt = require("bcryptjs");
 
+//JWT
+const JWT = require("jsonwebtoken");
+const config = require("config");
+
 router.post(
   "/",
   [
@@ -49,13 +53,32 @@ router.post(
         password: password,
       });
 
+      //bcrypt
       const salt = await bcrypt.genSalt(10);
 
       Adminuser.password = await bcrypt.hash(password, salt);
 
-      await Adminuser.save(); // save to dataBase
+      // await Adminuser.save(); // save to dataBase
 
-      res.send(" Admin_user saved ");
+      //jwt
+
+      const PAYLOAD = {
+        Admin_user: {
+          id: Adminuser.id, // we are send in payload only the id
+        },
+      };
+
+      JWT.sign(
+        PAYLOAD,
+        config.get("jwtSecret"),
+        {
+          expiresIn: 360000,
+        },
+        (err, token) => {
+          if (err) throw err;
+          res.json({ token });
+        },
+      );
     } catch (error) {
       console.error(error.message);
       res.status(500).send("server Error");
