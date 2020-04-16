@@ -20,4 +20,4 @@ const SchemaAdmin = mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Admin", SchemaAdmin);
+module.exports = mongoose.model("Admin", SchemaAdmin); //Here Admin means the collection name where this schema will store

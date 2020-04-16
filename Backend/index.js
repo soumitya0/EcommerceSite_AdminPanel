@@ -6,6 +6,9 @@ const PORT = process.env.PORT || 8000;
 const connectDb = require("./config/db");
 connectDb();
 
+//Middle Ware
+app.use(express.json({ extended: false }));
+
 app.get("/api/customer", (req, res) => {
   const customer = [{ id: 1, check: "i am working from EXPRESS" }];
 
