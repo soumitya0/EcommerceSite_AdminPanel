@@ -4,10 +4,6 @@ const router = express.Router();
 //express validator
 const { check, validationResult } = require("express-validator");
 
-//  @route        POST api/admin
-//  @dec          Register Admin
-//  @access       Public
-
 //schema
 const SchemaAdmin = require("../../../../Models/Admin_Panel/AdminSchema/SchemaAdmin");
 
@@ -58,7 +54,7 @@ router.post(
 
       Adminuser.password = await bcrypt.hash(password, salt);
 
-      // await Adminuser.save(); // save to dataBase
+      await Adminuser.save(); // save to dataBase
 
       //jwt
 
