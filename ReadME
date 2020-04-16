@@ -1,0 +1,9 @@
+BackEnd
+
+        -> npm i express bcryptjs jsonwebtoken config express-validator mongoose
+        -> Index.js
+
+Client 
+        -> add proxy server
+        ->
+
