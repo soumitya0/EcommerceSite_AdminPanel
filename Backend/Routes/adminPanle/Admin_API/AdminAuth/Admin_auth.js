@@ -14,11 +14,24 @@ const bcrypt = require("bcryptjs");
 const JWT = require("jsonwebtoken");
 const config = require("config");
 
+//middleware
+const auth = require("../../../../middleWare/auth");
+
 //  @route        GET /api/authadmin
-//  @dec          Logged in  admin
+//  @dec          Logged in  admin  (Getting the current logged in user)
 //  @access       Private
-router.get("/", (req, res) => {
-  res.send("Logged Admin");
+router.get("/", auth, async (req, res) => {
+  try {
+    const userAdmin = await SchemaAdmin.findById(req.Admin_user.id).select(
+      "-password",
+    ); // req.Admin_user.id contain id from the token that is passed by the middleware
+    //select('-password') here we don't want to return the password
+
+    res.json(userAdmin);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("server error");
+  }
 });
 
 //  @route        POST /api/authadmin
