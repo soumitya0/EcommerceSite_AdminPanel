@@ -5,6 +5,17 @@ BackEnd
 
 Client 
         -> add proxy server
-        -> Route and define Route
         
+BackEnd        
+        -> Route and define Route
+        -> config
+        -> DB connection 
+        -> adding  functionality in API
+
+******** functionality in API *********
+
+Routes/Admin_Api
+        -> register user   (http://localhost:8000/api/admin)      
+        -> Create Schema
+
 

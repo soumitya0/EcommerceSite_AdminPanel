@@ -2,6 +2,10 @@ const express = require("./node_modules/express");
 const app = express();
 const PORT = process.env.PORT || 8000;
 
+//db
+const connectDb = require("./config/db");
+connectDb();
+
 app.get("/api/customer", (req, res) => {
   const customer = [{ id: 1, check: "i am working from EXPRESS" }];
 
