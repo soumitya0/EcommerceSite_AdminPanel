@@ -46,6 +46,13 @@
   margin: 20px;
 }
 
+.marginTop-50 {
+  margin-top: 50px;
+}
+.margin-50 {
+  margin: 50px;
+}
+
 .text-gray {
   color: #5a5c69 !important;
 }
@@ -54,4 +61,109 @@
   font-size: 25px;
   font-weight: 700;
   letter-spacing: 3px;
+}
+
+.text-500 {
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: 3px;
+}
+
+.Dashborad-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 250px;
+  background-color: #fff;
+  padding: 30px;
+}
+
+.border-left-primary {
+  border-left: 0.25rem solid #4e73df;
+}
+
+.Dashborad-card-container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 140px 50px;
+  grid-template-rows: repeat(2, 20px);
+}
+.Dashborad-card-Name {
+  color: cadetblue;
+}
+
+.Dashborad-card-Number {
+  color: #645c69;
+}
+.Dashborad-card-Image {
+  grid-row: 1/3;
+  grid-column: 2;
+
+  font-size: 30px;
+  justify-self: center;
+  color: #7f7f81;
+}
+
+.GridCardInfo {
+  display: grid;
+  width: 70%;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  grid-gap: 50px;
+}
+
+.GridTableInfo {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-gap: 50px;
+}
+
+/* Table */
+.tabelContainer {
+  width: 520px;
+  border: 2px solid #eee;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  transition: 0.3s;
+}
+
+.tableName {
+  height: 50px;
+  background-color: #f7f7f7;
+  color: #5f9ea0;
+  font-size: 20px;
+  align-content: center;
+  text-transform: capitalize;
+}
+.TableState {
+  text-align: center;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  border: 3px solid #ddd;
+  width: 100%;
+}
+
+.TableState td,
+th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.TableState tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.TableState tr:hover {
+  background-color: #ddd;
+}
+
+.TableState th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #e9ecef;
+  color: #095756;
 }

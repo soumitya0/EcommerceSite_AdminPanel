@@ -5,7 +5,7 @@ import { Switch, Route } from "react-router-dom";
 import "./DashboardStyle.css";
 import LeftBar from "../LeftBar/LeftBar";
 import TopBar from "../TopBar/TopBar";
-import DashBoardAddProduct from "../DashBoardAddProduct/DashBoardAddProduct";
+import DashBoardAddProduct from "../DashBoardProduct/AddProduct/DashBoardAddProduct";
 import DashboardHome from "../DashboardHome/DashboardHome";
 import DashBoardManageProduct from "../DashBoardManageProduct/DashBoardManageProduct";
 import DashBoardOrder from "../DashBoardOrders/DashBoardOrder";

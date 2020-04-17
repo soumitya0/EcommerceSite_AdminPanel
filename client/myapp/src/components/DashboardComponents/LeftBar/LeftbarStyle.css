@@ -1,6 +1,6 @@
 .sidebar {
   width: 14rem;
-  min-height: 100vh;
+  height: 100%;
   font-size: 1rem;
   color: #fff;
 }
