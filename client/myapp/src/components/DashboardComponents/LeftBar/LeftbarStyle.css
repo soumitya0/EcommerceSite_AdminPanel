@@ -1,0 +1,53 @@
+.sidebar {
+  width: 14rem;
+  min-height: 100vh;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.sidebar-brand-text {
+  font-size: 25px;
+  align-self: center;
+}
+
+.sidebar-divider {
+  position: relative;
+  border-top: 0.5px solid rgb(197, 194, 194);
+  width: 14rem;
+}
+
+.LeftbarMargin {
+  margin: 20px;
+}
+
+.nav-item {
+  text-decoration: none;
+}
+
+.nav-link {
+  display: block;
+  text-decoration: none;
+  font-size: 16px;
+  color: rgb(197, 194, 194);
+  font-weight: bold;
+  align-self: left;
+}
+.nav-link:hover {
+  color: #fff;
+}
+
+.nav-link:visited {
+  text-decoration: none;
+}
+
+.sidebar-heading {
+  text-transform: uppercase;
+  color: rgb(197, 194, 194);
+  font-weight: bolder;
+  align-self: left;
+  font-size: 11px;
+}
+
+.LeftBarIcon {
+  margin-right: 10px;
+}

@@ -1,0 +1,24 @@
+.DashBoardGrid1 {
+  grid-row: 1/-1;
+}
+.DashBoardGrid2 {
+  grid-column: 2/-1;
+}
+
+.DashBoardGrid3 {
+  grid-column: 2/4;
+  grid-row: 2/4;
+  background-color: #f8f9fc;
+}
+
+.container {
+  margin: 20px;
+}
+
+.gridDashboard {
+  display: grid;
+  width: 100%;
+  height: 100vh;
+  grid-template-columns: 223px repeat(2, 1fr);
+  grid-template-rows: 80px repeat(2, 1fr);
+}

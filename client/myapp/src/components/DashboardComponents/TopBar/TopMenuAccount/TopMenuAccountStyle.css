@@ -1,0 +1,14 @@
+.img-profile {
+  align-self: center;
+  margin-top: -10px;
+  height: 2rem;
+  width: 2rem;
+}
+
+.rounded-circle {
+  border-radius: 50%;
+}
+.TopMenuAccountEmail {
+  font-size: 12px;
+  margin-top: 1rem;
+}

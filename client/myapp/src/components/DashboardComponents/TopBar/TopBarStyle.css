@@ -1,0 +1,10 @@
+.topbar {
+  width: 100%;
+  height: 80px;
+}
+
+.topbar-divider {
+  border-right: 1px solid #fff;
+  height: calc(4.375rem - 2rem);
+  margin: auto 1rem;
+}
