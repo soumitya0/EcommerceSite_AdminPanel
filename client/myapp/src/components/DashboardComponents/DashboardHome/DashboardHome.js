@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import TopCard from "../../../common/components/Dashboard/TopCard";
 import DashBoardProductoutofStock from "../DashBoardProduct/ProductOutofStock/DashBoardProductoutofStock";
-import PendingOrders from "../DashBoardProduct/PendingOrders/PendingOrders";
+import PendingOrders from "../DashBoardOrders/PendingOrders/PendingOrders";
 
 class DashboardHome extends Component {
   render() {
