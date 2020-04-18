@@ -1,11 +1,21 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
+
+import TopCard from "../../../common/components/Dashboard/TopCard";
 
 class DashBoardAdmin extends Component {
   render() {
     return (
-      <div>
-        <h2>DashBoardAdmin</h2>
-      </div>
+      <Fragment>
+        <div>
+          <h1 className="text-gray text-700">category</h1>
+          <p className="marginTop-10">category here</p>
+          <div className="GridCardInfo marginTop-20">
+            <div>
+              <TopCard />
+            </div>
+          </div>
+        </div>
+      </Fragment>
     );
   }
 }
