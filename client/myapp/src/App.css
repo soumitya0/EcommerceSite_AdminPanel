@@ -121,6 +121,14 @@
 }
 
 /* Table */
+.tabelContainerProduct {
+  width: 100%;
+  border: 2px solid #eee;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  transition: 0.3s;
+}
 .tabelContainer {
   width: 520px;
   border: 2px solid #eee;
@@ -166,4 +174,27 @@ th {
   text-align: center;
   background-color: #e9ecef;
   color: #095756;
+}
+
+.header-buttons {
+  float: right;
+  margin-top: -30px;
+  margin-bottom: 10px;
+}
+
+.btnproduct {
+  height: 50px;
+  width: 50px;
+  display: inline-block;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+  font-size: 25px;
+  border-radius: 5px;
+  user-select: none;
+}
+
+.btn-green {
+  background-color: cadetblue;
+  border-color: cadetblue;
 }

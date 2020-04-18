@@ -1,0 +1,103 @@
+.FormContainer {
+  width: 60%;
+  border: 2px solid #eee;
+
+  border-radius: 5px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  transition: 0.3s;
+
+  height: 700px;
+  padding: 20px;
+}
+
+.formGrid {
+  display: grid;
+  width: 100%;
+  height: 600px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(6, 70px);
+  grid-gap: 20px;
+}
+
+.formGridImagePreView {
+  background-color: #fff;
+  grid-row: 1/4;
+  border-radius: 0.35rem;
+}
+.formGridImagePreView:hover {
+  box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
+}
+.formGridDescription {
+  grid-column: 1/-1;
+}
+
+.formLable {
+  font-size: 1.1rem;
+  letter-spacing: normal;
+  font-weight: 500;
+}
+
+.formInput {
+  margin-top: 10px;
+  width: 100%;
+  height: 37px;
+  font-weight: 500;
+  color: #6e707e;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #d1d3e2;
+  border-radius: 0.35rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.formInput:focus {
+  color: #6e707e;
+  background-color: #fff;
+  border-color: #bac8f3;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
+}
+
+.formBtn {
+  height: 40px;
+  width: 80px;
+  display: inline;
+  position: absolute;
+  border-radius: 0.35rem;
+
+  display: flex;
+}
+
+.btn_cancle {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.btn_submit {
+  margin-left: 150px;
+  background-color: #74c687;
+  color: #fff;
+}
+.Btntext {
+  font-size: 16px;
+  letter-spacing: normal;
+  font-weight: normal;
+  align-self: center;
+  padding: 20px;
+}
+
+.btn_cancle:hover {
+  box-shadow: 0 0 0 0.2rem rgba(219, 77, 21, 0.863);
+  cursor: pointer;
+}
+
+.btn_submit:hover {
+  box-shadow: 0 0 0 0.2rem rgba(101, 236, 113, 0.863);
+  cursor: pointer;
+}
+
+.formIcon {
+  font-size: 50px;
+  text-align: center;
+  margin: 50px;
+}

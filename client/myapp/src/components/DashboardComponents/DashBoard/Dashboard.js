@@ -11,6 +11,7 @@ import DashBoardManageProduct from "../DashBoardManageProduct/DashBoardManagePro
 import DashBoardOrder from "../DashBoardOrders/DashBoardOrder";
 import DashBoardCategory from "../DashboardCategory/DashBoardCategory";
 import DashBoardAdmin from "../DashBoardAdmin/DashBoardAdmin";
+import DashboardProduct from "../DashBoardProduct/DashboardProduct";
 class Dashboard extends Component {
   render() {
     return (
@@ -34,7 +35,7 @@ class Dashboard extends Component {
                 </Route>
 
                 <Route path="/dashboard/addProducts" exact>
-                  <DashBoardAddProduct />
+                  <DashboardProduct />
                 </Route>
 
                 <Route path="/dashboard/manageProduct" exact>
