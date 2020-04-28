@@ -7,8 +7,8 @@ class DashBoardAdmin extends Component {
     return (
       <Fragment>
         <div>
-          <h1 className="text-gray text-700">category</h1>
-          <p className="marginTop-10">category here</p>
+          <h1 className="text-gray text-700">Admin</h1>
+          <p className="marginTop-10">Admin here</p>
           <div className="GridCardInfo marginTop-20">
             <div>
               <TopCard />

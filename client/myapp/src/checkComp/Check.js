@@ -5,7 +5,6 @@ class Check extends Component {
     super(props);
 
     this.state = {
-      customer: [],
       testing: "",
     };
   }
