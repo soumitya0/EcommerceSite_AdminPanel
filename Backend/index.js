@@ -18,4 +18,8 @@ app.get("/testing", (req, res) => {
   res.send("i am testing from Bacckend");
 });
 
+// Dinfine Route
+// @des   admin
+app.use("/api/admin", require("./Routes/adminPanle/Admin_API/adminApi"));
+
 app.listen(PORT, () => console.log(`i am running port ${PORT}`));
