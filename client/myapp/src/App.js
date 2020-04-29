@@ -7,6 +7,7 @@ import LeftBar from "./components/DashboardComponents/LeftBar/LeftBar";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import TopBar from "./components/DashboardComponents/TopBar/TopBar";
 import Dashboard from "./components/DashboardComponents/DashBoard/Dashboard";
+import DashBoardLogin from "./components/DashboardComponents/DashBoardLogin/DashBoardLogin";
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
         <Switch>
           <Route path="/dashboard">
             <Dashboard />
+          </Route>
+          <Route path="/DashboardLogin">
+            <DashBoardLogin />
           </Route>
         </Switch>
       </BrowserRouter>
