@@ -22,6 +22,28 @@ class AddCategory extends Component {
 
   onSubmit = (event) => {
     event.preventDefault();
+    console.log("i am ADDCategory.js ");
+
+    console.log(localStorage.getItem("AdminLogin"), "i am token AddCategory");
+
+    let axiosConfig = {
+      headers: {
+        "X-Auth-Token": localStorage.getItem("AdminLogin"),
+      },
+    };
+
+    let bodyData = {
+      Categoryname: this.state.Categoryname,
+    };
+
+    axios
+      .post("/api/category", bodyData, axiosConfig)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+      });
   };
 
   render() {
@@ -52,7 +74,7 @@ class AddCategory extends Component {
                   <input
                     className="formBtn btn_submit Btntext"
                     type="submit"
-                    value="Login"
+                    value="ADD"
                   />
                 </div>
               </div>

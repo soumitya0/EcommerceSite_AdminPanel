@@ -10,10 +10,7 @@ class Check extends Component {
   }
 
   componentDidMount() {
-    fetch(
-      "https://cors-anywhere.herokuapp.com/https://safe-cove-81142.herokuapp.com/testing",
-      {},
-    ).then((response) =>
+    fetch("/testing", {}).then((response) =>
       response.text().then((data) => {
         console.log(data);
         this.setState({ testing: data });
