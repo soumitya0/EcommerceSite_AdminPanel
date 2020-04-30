@@ -10,14 +10,10 @@ class Check extends Component {
   }
 
   componentDidMount() {
-    console.log("fetching .....");
-    fetch("/api/customer")
-      .then((response) => response.json())
-      .then((data) =>
-        this.setState({ customer: data }, () => console.log(data)),
-      );
-
-    fetch("/testing").then((response) =>
+    fetch(
+      "https://cors-anywhere.herokuapp.com/https://safe-cove-81142.herokuapp.com/testing",
+      {},
+    ).then((response) =>
       response.text().then((data) => {
         console.log(data);
         this.setState({ testing: data });

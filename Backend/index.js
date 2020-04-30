@@ -22,4 +22,10 @@ app.get("/testing", (req, res) => {
 // @des   admin
 app.use("/api/admin", require("./Routes/adminPanle/Admin_API/adminApi"));
 
+//@des    category
+app.use(
+  "/api/category",
+  require("./Routes/adminPanle/AddCategory/categoryApi"),
+);
+
 app.listen(PORT, () => console.log(`i am running port ${PORT}`));

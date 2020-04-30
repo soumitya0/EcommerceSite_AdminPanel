@@ -29,25 +29,27 @@ class DashBoardLogin extends Component {
   };
 
   onSubmit = (event) => {
-    console.log("i am clicked");
+    console.log("i am clicked From DashboardLogin.js");
     event.preventDefault();
 
-    axios
-      .post("api/admin/login", {
-        AdminEmail: this.state.email,
-        password: this.state.password,
-      })
-      .then((res) => {
-        console.log("axios");
-        console.log(res.data.token);
-        const token = res.data.token;
-        localStorage.setItem("AdminLogin", token);
+    console.log(this.state);
 
-        this.setState({
-          isLogin: true,
-          token: token,
-        });
-      });
+    // axios
+    //   .post("api/admin/login", {
+    //     AdminEmail: this.state.email,
+    //     password: this.state.password,
+    //   })
+    //   .then((res) => {
+    //     console.log("axios");
+    //     console.log(res.data.token);
+    //     const token = res.data.token;
+    //     localStorage.setItem("AdminLogin", token);
+
+    //     this.setState({
+    //       isLogin: true,
+    //       token: token,
+    //     });
+    //   });
   };
 
   render() {

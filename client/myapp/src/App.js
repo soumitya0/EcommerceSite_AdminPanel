@@ -12,6 +12,8 @@ import DashBoardLogin from "./components/DashboardComponents/DashBoardLogin/Dash
 function App() {
   return (
     <div>
+      <Check />
+      <div></div>
       <BrowserRouter>
         <Switch>
           <Route path="/dashboard">
