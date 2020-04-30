@@ -34,22 +34,22 @@ class DashBoardLogin extends Component {
 
     console.log(this.state);
 
-    // axios
-    //   .post("api/admin/login", {
-    //     AdminEmail: this.state.email,
-    //     password: this.state.password,
-    //   })
-    //   .then((res) => {
-    //     console.log("axios");
-    //     console.log(res.data.token);
-    //     const token = res.data.token;
-    //     localStorage.setItem("AdminLogin", token);
+    axios
+      .post("/api/admin/login", {
+        AdminEmail: this.state.email,
+        password: this.state.password,
+      })
+      .then((res) => {
+        console.log("axios");
+        console.log(res.data.token);
+        const token = res.data.token;
+        localStorage.setItem("AdminLogin", token);
 
-    //     this.setState({
-    //       isLogin: true,
-    //       token: token,
-    //     });
-    //   });
+        this.setState({
+          isLogin: true,
+          token: token,
+        });
+      });
   };
 
   render() {
