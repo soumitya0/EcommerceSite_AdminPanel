@@ -31,3 +31,54 @@ Routes/Admin_Api
 1/5 
         ->deployed to heroku
         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ //Print hellow 10 time 
+ import React, { Component, Fragment } from "react";
+import "./PaginationItemstyle.css";
+class PaginationItem extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      lengt: [],
+    };
+
+    // {
+    //   [...Array(5)].map(() => console.log("Hello"));
+    // }
+  }
+
+  render() {
+    let row = [];
+    for (let i = 0; i < 10; i++) {
+      row.push(
+        <li>
+          <a href="#">{i}</a>{" "}
+        </li>,
+      );
+      
+    }
+    return (
+      <Fragment>
+        <div class="pagination">{row}</div>
+      </Fragment>
+    );
+  }
+}
+
+export default PaginationItem;
+       
