@@ -8,6 +8,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import TopBar from "./components/DashboardComponents/TopBar/TopBar";
 import Dashboard from "./components/DashboardComponents/DashBoard/Dashboard";
 import DashBoardLogin from "./components/DashboardComponents/DashBoardLogin/DashBoardLogin";
+import Try from "./checkComp/Try";
 
 function App() {
   return (

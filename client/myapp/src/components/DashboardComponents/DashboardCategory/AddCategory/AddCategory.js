@@ -8,13 +8,20 @@ class AddCategory extends Component {
     super(props);
     this.state = {
       Categoryname: "",
+
+      reload: false,
     };
+  }
+
+  componentDidMount() {
+    console.log("i am componentDidMount");
   }
 
   onChangeHandler = (event) => {
     const { value, name } = event.target;
     this.setState({
       [name]: value,
+      reload: true,
     });
 
     console.log(this.state.Categoryname);
@@ -44,6 +51,10 @@ class AddCategory extends Component {
       .catch((error) => {
         console.log(error.response.data);
       });
+
+    window.location.reload();
+
+    window.location.reload();
   };
 
   render() {
