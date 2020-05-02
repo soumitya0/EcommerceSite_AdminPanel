@@ -44,4 +44,45 @@ router.post(
   },
 );
 
+// @Api         GET /api/category/
+// @dec         getting all Category
+// access       public
+
+router.get("/", async (req, res) => {
+  try {
+    const data = await SchemaCategory.find({});
+    res.json(data);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("server error");
+  }
+});
+
+// @Api         DELETE /api/category/
+// @dec         Deleting  Category
+// access       private
+
+router.delete("/:id", MiddleWare_Auth, async (req, res) => {
+  try {
+    const result = await SchemaCategory.findByIdAndRemove({
+      _id: req.params.id,
+    });
+    console.log(req.params.id);
+
+    if (result) {
+      res.send({
+        message: " delete success",
+        deletedCount: "1",
+      });
+    } else {
+      res.send({
+        message: "Id not found ",
+      });
+    }
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("server error ");
+  }
+});
+
 module.exports = router;
