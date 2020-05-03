@@ -11,6 +11,7 @@ class CategoryList extends Component {
       CategoryItem: [],
       Headerdata: ["#", "CategoryName", "Delete"],
       singleData: [],
+      length: "",
     };
   }
 
@@ -63,6 +64,8 @@ class CategoryList extends Component {
       .catch((error) => {
         console.log(error.response.data);
       });
+
+    window.location.reload();
   };
 
   componentDidMount() {
@@ -75,18 +78,29 @@ class CategoryList extends Component {
         });
 
         console.log(this.state, "state");
+        console.log(this.state.CategoryItem.length, "CategoryList line-78");
+
+        this.setState({
+          length: this.state.CategoryItem.length,
+        });
+        console.log(this.state.length, "CategoryList line-84");
       })
       .catch((error) => {
         console.log(error);
       });
   }
 
-  handlePageChange(pageNumber) {
-    console.log(`active page is ${pageNumber}`);
-    this.setState({ activePage: pageNumber });
+  // lengthPass = () => {
+  //   console.log(this.state.length, "lengthPass in CategoryList");
+  // };
+
+  demoMethod() {
+    this.props.sendData("45875852");
   }
 
   render() {
+    this.demoMethod();
+
     console.log(this.state.CategoryItem.length, "length of CategoryList");
     return (
       <Fragment>
@@ -103,6 +117,8 @@ class CategoryList extends Component {
 
           <PaginationItem />
         </div>
+
+        {/* <button onClick={this.props.dataSet("54644")}>Click me</button> */}
       </Fragment>
     );
   }
