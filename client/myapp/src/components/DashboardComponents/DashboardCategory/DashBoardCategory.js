@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 
 import "./DashBoardCategory.css";
 
@@ -7,16 +7,19 @@ import AddCategory from "./AddCategory/AddCategory";
 import CategoryList from "./CategoryList.js/CategoryList";
 
 const DashBoardCategory = () => {
-  var length;
+  const [length, setLength] = useState(0);
+
+  // var length;
 
   const getLength = (val) => {
     console.log(val, "DashBoard category");
 
-    length = val;
+    // length = val;
+
+    setLength(val);
   };
 
-  console.log(length, "Length");
-
+  console.log("Length", length);
   return (
     <div>
       <h1 className="text-gray text-700">category</h1>
