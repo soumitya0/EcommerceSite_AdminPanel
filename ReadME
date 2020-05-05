@@ -82,3 +82,21 @@ class PaginationItem extends Component {
 
 export default PaginationItem;
        
+
+
+
+
+child to parents data pass
+  error DashBoardCartegory.js(parenst) and categoryList.js is child
+
+
+
+
+
+
+
+  TODO (3/5) : 
+          this , sync awaitss
+
+
+

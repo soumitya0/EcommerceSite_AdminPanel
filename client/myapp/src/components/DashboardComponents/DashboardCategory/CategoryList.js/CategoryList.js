@@ -95,7 +95,7 @@ class CategoryList extends Component {
   // };
 
   demoMethod() {
-    this.props.sendData("45875852");
+    this.props.sendData(this.state.CategoryItem.length);
   }
 
   render() {

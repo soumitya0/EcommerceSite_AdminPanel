@@ -26,7 +26,7 @@ const DashBoardCategory = () => {
       <p className="marginTop-10">category here</p>
       <div className="GridCardInfo marginTop-20">
         <div>
-          <TopCard Name="CATEGORY COUNT" />
+          <TopCard name="CATEGORY COUNT" value={length} />
         </div>
         <div>
           <TopCard />

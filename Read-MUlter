@@ -1,0 +1,7 @@
+npm i multer
+
+create Schema 
+
+Create UI for INPUT_FORM with handler
+
+create encType in UI FORM encType="multipart/form-data"
