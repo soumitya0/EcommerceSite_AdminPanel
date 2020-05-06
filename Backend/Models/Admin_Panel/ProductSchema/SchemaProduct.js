@@ -13,7 +13,6 @@ const SchemaProduct = mongoose.Schema({
 
   productImage: {
     type: String,
-    require: true,
   },
 
   productCategory: {
@@ -23,7 +22,6 @@ const SchemaProduct = mongoose.Schema({
 
   productWeight: {
     type: String,
-    require: true,
   },
   productPrice: {
     type: String,
@@ -31,7 +29,6 @@ const SchemaProduct = mongoose.Schema({
   },
   productMaxSellingWeight: {
     type: String,
-    require: true,
   },
   stock: {
     type: String,

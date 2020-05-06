@@ -28,4 +28,9 @@ app.use(
   require("./Routes/adminPanle/AddCategory/categoryApi"),
 );
 
+app.use(
+  "/api/addproduct",
+  require("./Routes/adminPanle/Add_Product/AddProduct"),
+);
+
 app.listen(PORT, () => console.log(`i am running port ${PORT}`));

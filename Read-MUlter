@@ -5,3 +5,41 @@ create Schema
 Create UI for INPUT_FORM with handler
 
 create encType in UI FORM encType="multipart/form-data"
+
+
+API 
+
+Make a simple API  that accept the exclude imgae 
+
+USE multer
+    -> required multer
+    -> required body-parser
+    -> required path
+    -> required fs
+
+    -> dir
+    ->   var uploads = multer({
+                                    storage: multer.diskStorage
+                                        ({
+                                            destination: function (req, res, cb) {
+
+                                                },
+
+                                            filename: function (req, file, cb) {
+      
+                                        }),
+
+                                    fileFilter: function (req, file, cb) {
+                                        
+                                            const ext = path.extname(file.originalname);
+   
+                                         },    
+                                });
+
+
+->
+router.use(bodyParser.json());
+router.use(bodyParser.urlencoded({ extended: false }));
+router.use(express.static("uploads"));
+-> middleware  uploads.any()
+-> productImage: req.files[0].filename,

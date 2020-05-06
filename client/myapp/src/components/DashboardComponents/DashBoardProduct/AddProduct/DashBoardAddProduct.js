@@ -51,7 +51,7 @@ class DashBoardAddProduct extends Component {
 
     console.log(this.state);
     this.setState({
-      Price: `${this.state.productWeight} ${this.state.productPrice}`,
+      Price: `${this.state.productWeight} ₹${this.state.productPrice}`,
     });
   };
 
@@ -66,6 +66,54 @@ class DashBoardAddProduct extends Component {
     });
   };
 
+  onSubmit = (event) => {
+    console.log("i am clicked");
+    event.preventDefault();
+    console.log(localStorage.getItem("AdminLogin"));
+
+    const bodyData = {
+      productName: this.state.productName,
+      productDescrption: this.state.productDescrption,
+      productCategory: this.state.productCategory,
+      productWeight: this.state.productWeight,
+      productPrice: this.state.productPrice,
+      productMaxSellingWeight: this.state.productMaxSellingWeight,
+      stock: this.state.stock,
+    };
+
+    console.log(bodyData);
+    const fd = new FormData();
+    fd.append("image", this.state.Selectedfile, this.state.Selectedfile.name);
+
+    fd.append("productName", this.state.productName);
+    fd.append("productDescrption", this.state.productDescrption);
+    fd.append("productCategory", this.state.productCategory);
+    fd.append("productWeight", this.state.productWeight);
+
+    fd.append("productPrice", this.state.Price);
+    fd.append("productMaxSellingWeight", this.state.productMaxSellingWeight);
+    fd.append("stock", this.state.stock);
+
+    console.log(fd, "FormData");
+    let axiosConfig = {
+      headers: {
+        "X-Auth-Token": localStorage.getItem("AdminLogin"),
+      },
+    };
+
+    axios
+      .post("/api/addproduct", fd, axiosConfig)
+      .then((res) => {
+        console.log("UI");
+        console.log(res.data);
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+      });
+  };
   render() {
     return (
       <Fragment>
@@ -73,7 +121,7 @@ class DashBoardAddProduct extends Component {
           <div className="tableName text-700">
             <p>ADD PRODUCT </p>
 
-            <form encType="multipart/form-data">
+            <form onSubmit={this.onSubmit} encType="multipart/form-data">
               <div className="formGrid marginTop-20">
                 <div className="formGridImagePreView">
                   Image Preview
@@ -178,10 +226,10 @@ class DashBoardAddProduct extends Component {
                     onChange={this.changeHandle}
                   >
                     <option>Choose your Weight</option>
-                    <option value="1">250grm</option>
-                    <option value="2">1kg</option>
-                    <option value="3">2kg</option>
-                    <option value="3">5kg</option>
+                    <option value="250grm">250grm</option>
+                    <option value="1kg">1kg</option>
+                    <option value="2kg">2kg</option>
+                    <option value="5kg">5kg</option>
                   </select>
                 </div>
 
@@ -207,7 +255,7 @@ class DashBoardAddProduct extends Component {
                   </div>
 
                   <div className="formBtn btn_submit">
-                    <p className="Btntext">Save</p>
+                    <input className="Btntext" type="submit" value="Publish" />
                   </div>
                 </div>
               </div>

@@ -75,7 +75,6 @@
 
 .btn_submit {
   margin-left: 150px;
-  background-color: #74c687;
   color: #fff;
 }
 .Btntext {
@@ -92,7 +91,6 @@
 }
 
 .btn_submit:hover {
-  box-shadow: 0 0 0 0.2rem rgba(101, 236, 113, 0.863);
   cursor: pointer;
 }
 
