@@ -99,4 +99,43 @@ router.post(
   },
 );
 
+// @Api         GET /api/addproduct
+// @dec         getting all Product
+// access       private
+router.get("/", MiddleWare_Auth, async (req, res) => {
+  try {
+    const data = await SchemaProduct.find({});
+    res.json(data);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("server error");
+  }
+});
+
+// @Api         DELETE /api/addproduct/:id
+// @dec         Deleting  Product by id
+// access       private
+router.delete("/:id", MiddleWare_Auth, async (req, res) => {
+  try {
+    const result = await SchemaProduct.findByIdAndDelete({
+      _id: req.params.id,
+    });
+    console.log(req.params.id);
+
+    if (result) {
+      res.send({
+        message: " delete success",
+        deletedCount: "1",
+      });
+    } else {
+      res.send({
+        message: "Id not found ",
+      });
+    }
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("server error ");
+  }
+});
+
 module.exports = router;

@@ -241,8 +241,8 @@ class DashBoardAddProduct extends Component {
                     onChange={this.changeHandle}
                   >
                     <option>Choose Stock</option>
-                    <option value="1">Avaliable</option>
-                    <option value="2">Out of Stock</option>
+                    <option value="Avaliable">Avaliable</option>
+                    <option value="Out of Stock">Out of Stock</option>
                   </select>
                 </div>
 
