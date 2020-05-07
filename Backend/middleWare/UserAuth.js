@@ -15,10 +15,10 @@ module.exports = function (req, res, next) {
     const decode = jwt.verify(token, config.get("jwtSecret")); // this is just a Payload
 
     console.log(decode.Admin, "Soumity");
-    req.Admin = decode.Admin; //creating a objct in req with user
+    req.user = decode.user; //creating a objct in req with user
 
     console.log("middle ware");
-    console.log(req.Admin.id);
+    console.log(req.user.id);
 
     next();
   } catch (error) {

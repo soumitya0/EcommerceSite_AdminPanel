@@ -28,11 +28,17 @@ app.use(
   require("./Routes/adminPanle/AddCategory/categoryApi"),
 );
 
+//@des    product
 app.use(
   "/api/addproduct",
   require("./Routes/adminPanle/Add_Product/AddProduct"),
 );
 
-app.use("/api/stock", require("./Routes/adminPanle/Stock/stock"));
+//@des    stock
+app.use("/api/stock", require("./Routes/adminPanle/Stock/stock")); //Not working currently
+
+//@des    UserApi
+
+app.use("/api/user", require("./Routes/client/User_Api/userApi"));
 
 app.listen(PORT, () => console.log(`i am running port ${PORT}`));
