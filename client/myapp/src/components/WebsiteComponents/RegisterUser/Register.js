@@ -35,35 +35,35 @@ class Register extends Component {
     console.log("i am clicked");
     event.preventDefault();
 
-    // if (this.state.password == this.state.confirmPassword) {
-    //   axios
-    //     .post("/api/register", {
-    //       name: this.state.name,
-    //       email: this.state.email,
-    //       password: this.state.password,
-    //     })
-    //     .then((res) => {
-    //       console.log(res.data);
-    //       this.setState({
-    //         register: true,
-    //       });
+    if (this.state.password == this.state.confirmPassword) {
+      axios
+        .post("/api/user", {
+          UserName: this.state.name,
+          UserEmail: this.state.email,
+          password: this.state.password,
+        })
+        .then((res) => {
+          console.log(res.data);
+          this.setState({
+            register: true,
+          });
 
-    //       alert("Register successful  Now Login");
-    //     })
+          alert("Register successful  Now Login");
+        })
 
-    //     .catch((error) => {
-    //       console.log(error.response.data);
-    //     });
-    // } else {
-    //   alert("Password fail");
-    //   this.setState({
-    //     name: "",
-    //     email: "",
-    //     password: "",
-    //     confirmPassword: "",
-    //     login: false,
-    //   });
-    // }
+        .catch((error) => {
+          console.log(error.response.data);
+        });
+    } else {
+      alert("Password fail");
+      this.setState({
+        name: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+        login: false,
+      });
+    }
   };
 
   render() {
@@ -78,7 +78,7 @@ class Register extends Component {
             />
           </div>
 
-          {!this.state.login ? (
+          {!this.state.register ? (
             <form onSubmit={this.onSubmit}>
               <div className="FormGrid">
                 <div>
@@ -148,7 +148,7 @@ class Register extends Component {
           ) : (
             <Redirect
               to={{
-                pathname: "/",
+                pathname: "/login",
                 state: {
                   working: "i am working",
                 },

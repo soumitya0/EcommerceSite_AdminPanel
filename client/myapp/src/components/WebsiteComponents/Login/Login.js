@@ -29,19 +29,25 @@ class Login extends Component {
     console.log("i am clicked");
     event.preventDefault();
 
-    // axios
-    //   .post("/api/login", {
-    //     email: this.state.email,
-    //     password: this.state.password,
-    //   })
-    //   .then((res) => {
-    //     console.log(res.data.token);
-    //     const token = res.data.token;
-    //     localStorage.setItem("Login", token);
-    //     this.setState({
-    //       login: true,
-    //     });
-    //   });
+    axios
+      .post("/api/user/login", {
+        UserEmail: this.state.email,
+        password: this.state.password,
+      })
+      .then((res) => {
+        console.log(res.data.token);
+        const token = res.data.token;
+        localStorage.setItem("UserToken", token);
+        this.setState({
+          login: true,
+        });
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+      });
   };
 
   render() {
@@ -93,7 +99,7 @@ class Login extends Component {
                   <input
                     className="Btn_Login_form"
                     type="submit"
-                    value="Submit"
+                    value="Login"
                   />
                   >
                 </div>
