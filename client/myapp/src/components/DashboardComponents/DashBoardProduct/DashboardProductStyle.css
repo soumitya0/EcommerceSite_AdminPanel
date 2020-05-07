@@ -1,0 +1,11 @@
+.Stock-OutofStock {
+  height: 100%;
+  width: 100%;
+  background-color: red;
+}
+
+.Stock-Avaliable {
+  height: 100%;
+  width: 100%;
+  background-color: green;
+}

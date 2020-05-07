@@ -242,7 +242,7 @@ class DashBoardAddProduct extends Component {
                   >
                     <option>Choose Stock</option>
                     <option value="Avaliable">Avaliable</option>
-                    <option value="Out of Stock">Out of Stock</option>
+                    <option value="OutofStock">OutofStock</option>
                   </select>
                 </div>
 

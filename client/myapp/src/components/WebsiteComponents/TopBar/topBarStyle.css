@@ -1,0 +1,46 @@
+.Client_TopbarGrid {
+  width: 100%;
+  height: 70px;
+  display: grid;
+
+  grid-template-columns: 10% 20% 50% 10% 10%;
+  grid-template-rows: 70px;
+  background-color: rgb(72, 77, 79);
+}
+.itemImg {
+  place-self: center;
+}
+.ImgTop {
+  height: 50px;
+}
+
+.mapMarkerLoaction {
+  place-self: center;
+}
+
+.mapMarker {
+  font-size: 20px;
+  color: #fff;
+}
+
+.Login-Register {
+  place-self: center;
+}
+
+.Register_topbar {
+  font-size: 20px;
+  color: #fff;
+}
+
+.menuItem {
+  position: absolute;
+  height: 150px;
+  width: 250px;
+  background-color: #fff;
+  margin-top: 50px;
+  margin-left: -150px;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  opacity: 0.5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}

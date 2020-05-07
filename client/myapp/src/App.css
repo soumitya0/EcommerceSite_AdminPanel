@@ -198,3 +198,12 @@ th {
   background-color: cadetblue;
   border-color: cadetblue;
 }
+
+.AccountBtn {
+  background-color: #fa910c;
+  height: 50px;
+  width: 100%;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  text-align: center;
+}

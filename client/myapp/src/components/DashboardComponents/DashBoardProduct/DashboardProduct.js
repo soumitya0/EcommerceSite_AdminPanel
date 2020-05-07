@@ -4,6 +4,8 @@ import DashBoardAddProduct from "./AddProduct/DashBoardAddProduct";
 
 import axios from "axios";
 
+import "./DashboardProductStyle.css";
+
 class DashboardProduct extends Component {
   constructor(props) {
     super(props);
@@ -19,8 +21,8 @@ class DashboardProduct extends Component {
         "Description",
         "Max Weight For Selling",
         "Date",
-        // "Stock",
-        "Image",
+        "Stock",
+        // "Image",
         "Delete",
       ],
     };
@@ -33,6 +35,46 @@ class DashboardProduct extends Component {
       <th key={data.ProductId}>{data}</th>
     ));
   }
+
+  btnStockHandler = (e) => {
+    console.log(e.target.getAttribute("productid"));
+
+    console.log(e.target.getAttribute("Stock"));
+
+    var _id = e.target.getAttribute("productid");
+    var getStock = e.target.getAttribute("Stock");
+
+    let axiosConfig = {
+      headers: {
+        "X-Auth-Token": localStorage.getItem("AdminLogin"),
+      },
+    };
+
+    if (getStock == "Avaliable") {
+      getStock = "OutofStock";
+    } else {
+      getStock = "Avaliable";
+    }
+
+    console.log(getStock, "getStock");
+    const bodyData = {
+      stock: getStock,
+    };
+
+    axios
+
+      .put(`/api/stock/${_id}`, axiosConfig, bodyData)
+      .then((res) => {
+        console.log(res.data);
+        //window.location.reload();
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+      });
+  };
 
   btnDeleteHandler = (e) => {
     console.log(e.target);
@@ -69,11 +111,11 @@ class DashboardProduct extends Component {
       const {
         productCategory,
         productDescrption,
-        productImage,
+        // productImage,
         productMaxSellingWeight,
         productName,
         productPrice,
-        // stock,
+        stock,
         date,
         _id,
       } = data;
@@ -87,8 +129,17 @@ class DashboardProduct extends Component {
           <td>{productDescrption}</td>
           <td>{productMaxSellingWeight}</td>
           <td>{date.slice(0, 10)}</td>
-          {/* <td>{stock}</td> */}
-          <td>{productImage}</td>
+          <td>
+            <div
+              onClick={this.btnStockHandler}
+              ProductId={_id}
+              Stock={stock}
+              className={`Stock-${stock}`}
+            >
+              {stock}
+            </div>
+          </td>
+          {/* <td>{productImage}</td> */}
           <td>
             {" "}
             <button onClick={this.btnDeleteHandler} ProductId={_id}>

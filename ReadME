@@ -85,6 +85,11 @@ export default PaginationItem;
 
 
 
+STOCK
+
+
+
+
 
 child to parents data pass
   error DashBoardCartegory.js(parenst) and categoryList.js is child

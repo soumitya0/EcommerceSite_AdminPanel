@@ -9,19 +9,24 @@ import TopBar from "./components/DashboardComponents/TopBar/TopBar";
 import Dashboard from "./components/DashboardComponents/DashBoard/Dashboard";
 import DashBoardLogin from "./components/DashboardComponents/DashBoardLogin/DashBoardLogin";
 import Try from "./checkComp/Try";
+import Home from "./components/WebsiteComponents/Home/Home";
 
 function App() {
   return (
     <div>
-      <Check />
       <div></div>
       <BrowserRouter>
         <Switch>
           <Route path="/dashboard">
             <Dashboard />
           </Route>
+
           <Route path="/DashboardLogin">
             <DashBoardLogin />
+          </Route>
+
+          <Route path="/">
+            <Home />
           </Route>
         </Switch>
       </BrowserRouter>

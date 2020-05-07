@@ -33,4 +33,6 @@ app.use(
   require("./Routes/adminPanle/Add_Product/AddProduct"),
 );
 
+app.use("/api/stock", require("./Routes/adminPanle/Stock/stock"));
+
 app.listen(PORT, () => console.log(`i am running port ${PORT}`));
