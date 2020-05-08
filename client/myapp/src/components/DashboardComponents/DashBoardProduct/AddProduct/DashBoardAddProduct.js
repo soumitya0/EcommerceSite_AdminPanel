@@ -15,6 +15,7 @@ class DashBoardAddProduct extends Component {
       productCategory: "",
       productWeight: "",
       productPrice: "",
+      priceWithWeight: "",
       productMaxSellingWeight: "",
       stock: "",
 
@@ -51,7 +52,7 @@ class DashBoardAddProduct extends Component {
 
     console.log(this.state);
     this.setState({
-      Price: `${this.state.productWeight} ₹${this.state.productPrice}`,
+      priceWithWeight: `${this.state.productWeight} ₹${this.state.productPrice}`,
     });
   };
 
@@ -77,6 +78,7 @@ class DashBoardAddProduct extends Component {
       productCategory: this.state.productCategory,
       productWeight: this.state.productWeight,
       productPrice: this.state.productPrice,
+      priceWithWeight: this.state.priceWithWeight,
       productMaxSellingWeight: this.state.productMaxSellingWeight,
       stock: this.state.stock,
     };
@@ -90,7 +92,8 @@ class DashBoardAddProduct extends Component {
     fd.append("productCategory", this.state.productCategory);
     fd.append("productWeight", this.state.productWeight);
 
-    fd.append("productPrice", this.state.Price);
+    fd.append("productPrice", this.state.productPrice);
+    fd.append("priceWithWeight", this.state.priceWithWeight);
     fd.append("productMaxSellingWeight", this.state.productMaxSellingWeight);
     fd.append("stock", this.state.stock);
 
@@ -242,7 +245,7 @@ class DashBoardAddProduct extends Component {
                   >
                     <option>Choose Stock</option>
                     <option value="Avaliable">Avaliable</option>
-                    <option value="OutofStock">OutofStock</option>
+                    <option value="OutofStock">Out of Stock</option>
                   </select>
                 </div>
 

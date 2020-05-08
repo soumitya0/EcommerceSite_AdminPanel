@@ -1,0 +1,45 @@
+.ProductPreviewGrid {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50% 45%;
+  grid-template-rows: 30% 50%;
+  grid-gap: 10px;
+
+  border: 1px solid #ddd;
+  border-radius: 4px;
+
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.headingProductPreview {
+  grid-column: 1/-1;
+  background-color: #fbfbfb;
+}
+
+.headingProductPreviewText {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.ProductPreviewDetails {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 30% 30% 30%;
+  grid-gap: 10%;
+  justify-items: center;
+}
+
+.ProductPreviewName {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.ProductPreviewCategory {
+  font-size: 16px;
+}
+
+.ProductPreviewPriceWithWeight {
+  font-size: 14px;
+  font-weight: 700;
+}

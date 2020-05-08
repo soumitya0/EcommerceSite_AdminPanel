@@ -1,5 +1,6 @@
 .FormContainer {
   width: 500px;
+  height: 900px;
   border: 2px solid #eee;
   border-radius: 5px;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);

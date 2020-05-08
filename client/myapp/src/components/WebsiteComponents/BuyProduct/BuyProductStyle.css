@@ -1,0 +1,38 @@
+/* NEW  */
+
+.buyProductGrid {
+  margin: 50px 250px;
+  height: 450px;
+  width: 80%;
+  display: grid;
+  grid-template-columns: 60% 20%;
+  grid-template-rows: 45% 45%;
+  grid-gap: 10px;
+}
+
+.buyProductAddressForm {
+  grid-row: 1/3;
+}
+
+.checkOutBtn {
+  height: 50px;
+  width: 100%;
+  background-color: #f78200;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  margin-top: 70%;
+  cursor: pointer;
+}
+
+.checkOutBtn:hover {
+  background-color: #ffb531;
+}
+
+.checkOutText {
+  text-align: center;
+  margin-top: 10px;
+  color: #fff;
+  font-size: 17px;
+}

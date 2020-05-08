@@ -27,6 +27,10 @@ const SchemaProduct = mongoose.Schema({
     type: String,
     require: true,
   },
+  priceWithWeight: {
+    type: String,
+    require: true,
+  },
   productMaxSellingWeight: {
     type: String,
   },

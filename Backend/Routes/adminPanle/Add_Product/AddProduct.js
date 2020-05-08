@@ -55,6 +55,7 @@ router.post(
       check("productDescrption", "product Descrption requires").not().isEmpty(),
       check("productCategory", "product Category requires").not().isEmpty(),
       check("productPrice", "product Price requires").not().isEmpty(),
+      check("priceWithWeight", "product Price requires").not().isEmpty(),
       check("stock", "stock  requires").not().isEmpty(),
     ],
   ],
@@ -77,6 +78,7 @@ router.post(
       productWeight,
       productPrice,
       productMaxSellingWeight,
+      priceWithWeight,
       stock,
     } = req.body;
 
@@ -87,6 +89,7 @@ router.post(
         productCategory: productCategory,
         productWeight: productWeight,
         productPrice: productPrice,
+        priceWithWeight: priceWithWeight,
         productMaxSellingWeight: productMaxSellingWeight,
         stock: stock,
         productImage: req.files[0].filename,
@@ -135,6 +138,37 @@ router.delete("/:id", MiddleWare_Auth, async (req, res) => {
   } catch (error) {
     console.error(error.message);
     res.status(500).send("server error ");
+  }
+});
+
+// @Api         GET /api/addproduct
+// @dec         getting all Product
+// access       private
+router.get("/data", async (req, res) => {
+  try {
+    const data = await SchemaProduct.find({});
+    res.json(data);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("server error");
+  }
+});
+
+// @Api         GET /api/addproduct/:id
+// @dec         getting by Product
+// access       public
+router.get("/:id", async (req, res) => {
+  try {
+    const data = await SchemaProduct.findById(req.params.id);
+
+    if (!data) {
+      return res.send(400).json({ msg: "Product Not Found " });
+    } else {
+      res.json(data);
+    }
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("server error");
   }
 });
 

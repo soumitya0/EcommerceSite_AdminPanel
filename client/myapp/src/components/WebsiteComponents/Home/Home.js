@@ -7,6 +7,8 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import TopBar from "../../WebsiteComponents/TopBar/TopBar";
 import Login from "../Login/Login";
 import Register from "../RegisterUser/Register";
+import ViewProduct from "../View/ViewProduct";
+import BuyProduct from "../BuyProduct/BuyProduct";
 class Home extends Component {
   render() {
     return (
@@ -16,6 +18,10 @@ class Home extends Component {
             <TopBar />
           </div>
 
+          <Route exact path="/">
+            <ViewProduct />
+          </Route>
+
           <Route exact path="/login">
             <Login />
           </Route>
@@ -23,6 +29,12 @@ class Home extends Component {
           <Route exact path="/register">
             <Register />
           </Route>
+
+          <Route
+            exact
+            path="/product_Item/:id"
+            render={(props) => <BuyProduct {...props} />}
+          />
         </BrowserRouter>
       </Fragment>
     );

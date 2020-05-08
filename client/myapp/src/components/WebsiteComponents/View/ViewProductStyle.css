@@ -1,0 +1,8 @@
+.Post_Grid {
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20%;
+  grid-column-gap: 5%;
+  grid-row-gap: 8%;
+}

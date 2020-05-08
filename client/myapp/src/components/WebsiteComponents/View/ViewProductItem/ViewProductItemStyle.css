@@ -1,0 +1,54 @@
+.ProductCardGrid {
+  height: 280px;
+  width: 230px;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 50% 10% 10% 10% 20%;
+  border: 1px solid #eeee;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 10px;
+}
+
+.imageLayoutthree {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.OutOfStock_product {
+  border: none;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  height: 100%;
+  width: 100%;
+  transition-duration: 0.4s;
+  background-color: #f44336;
+  color: white;
+  border: 2px solid #f44336;
+  border-radius: 10px;
+}
+
+.BuyProductBTN {
+  border: none;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  height: 100%;
+  width: 100%;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-color: white;
+  color: #f44336;
+  border: 2px solid #f44336;
+  border-radius: 10px;
+}
+
+.BuyProductBTN:hover {
+  background-color: #f44336;
+  color: white;
+}
