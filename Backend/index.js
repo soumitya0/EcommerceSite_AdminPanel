@@ -38,7 +38,12 @@ app.use(
 app.use("/api/stock", require("./Routes/adminPanle/Stock/stock")); //Not working currently
 
 //@des    UserApi
-
 app.use("/api/user", require("./Routes/client/User_Api/userApi"));
+
+//@des  InstaMojo
+app.use("/api/bid", require("./Routes/InstaMojo/bid"));
+
+//@des  Order
+app.use("/api/order", require("./Routes/client/Order/Order"));
 
 app.listen(PORT, () => console.log(`i am running port ${PORT}`));
