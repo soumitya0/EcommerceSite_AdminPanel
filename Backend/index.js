@@ -46,4 +46,7 @@ app.use("/api/bid", require("./Routes/InstaMojo/bid"));
 //@des  Order
 app.use("/api/order", require("./Routes/client/Order/Order"));
 
+//@des  Seacrh Bar Product
+app.use("/api/search", require("./Routes/client/SearchBarAPi/Search"));
+
 app.listen(PORT, () => console.log(`i am running port ${PORT}`));

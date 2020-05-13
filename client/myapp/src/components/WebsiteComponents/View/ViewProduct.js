@@ -11,6 +11,7 @@ class ViewProduct extends Component {
 
     this.state = {
       allProduct: [],
+      search: false,
     };
   }
 
@@ -30,15 +31,25 @@ class ViewProduct extends Component {
       .catch((err) => {
         console.log(err.response.data);
       });
+
+    console.log(this.state.search);
   }
 
   render() {
+    console.log(this.props.searchData, "searchData");
+    console.log(this.props.search, "search");
+    console.log(this.props.searchData.length, " LENGTH searchData");
+
     return (
       <Fragment>
         <div className="Post_Grid">
-          {this.state.allProduct.map((product, index) => (
-            <ViewProductItem key={index} item={product} />
-          ))}
+          {this.props.searchData.length > 0
+            ? this.props.searchData.map((product, index) => (
+                <ViewProductItem key={index} item={product} />
+              ))
+            : this.state.allProduct.map((product, index) => (
+                <ViewProductItem key={index} item={product} />
+              ))}
         </div>
       </Fragment>
     );

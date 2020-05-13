@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component, Fragment, useState } from "react";
 
 import "./HomeStyle.css";
 
@@ -9,36 +9,47 @@ import Login from "../Login/Login";
 import Register from "../RegisterUser/Register";
 import ViewProduct from "../View/ViewProduct";
 import BuyProduct from "../BuyProduct/BuyProduct";
-class Home extends Component {
-  render() {
-    return (
-      <Fragment>
-        <BrowserRouter>
-          <div>
-            <TopBar />
-          </div>
+import Thankyou from "../Thankyou/Thankyou";
+const Home = () => {
+  const [data, setData] = useState(0);
 
-          <Route exact path="/">
-            <ViewProduct />
-          </Route>
+  // SearchData
+  const getData = (val) => {
+    console.log(val, "home");
+    setData(val);
+  };
 
-          <Route exact path="/login">
-            <Login />
-          </Route>
+  return (
+    <Fragment>
+      <BrowserRouter>
+        <div>
+          <TopBar sendData={getData} />
+        </div>
 
-          <Route exact path="/register">
-            <Register />
-          </Route>
+        <Route exact path="/">
+          <ViewProduct searchData={data} search={true} />
+        </Route>
 
-          <Route
-            exact
-            path="/product_Item/:id"
-            render={(props) => <BuyProduct {...props} />}
-          />
-        </BrowserRouter>
-      </Fragment>
-    );
-  }
-}
+        <Route exact path="/login">
+          <Login />
+        </Route>
+
+        <Route exact path="/register">
+          <Register />
+        </Route>
+
+        <Route
+          exact
+          path="/product_Item/:id"
+          render={(props) => <BuyProduct {...props} />}
+        />
+
+        <Route exact path="/payment-complete">
+          <Thankyou />
+        </Route>
+      </BrowserRouter>
+    </Fragment>
+  );
+};
 
 export default Home;

@@ -31,43 +31,18 @@ class ProductPreview extends Component {
         console.log(err.response.data);
       });
   }
-
+  demoMethod = () => {
+    this.props.sendProduct(this.state.product_Data);
+  };
   render() {
+    this.demoMethod();
+
     console.log(this.state, "state565464");
     console.log(this.state.product_Data.productName);
     console.log(this.state.product_Data);
 
     return (
       <Fragment>
-        {/* <div className="MainContainerGrid">
-          <div>
-            <h2>{this.state.product_Data.productName}</h2>
-          </div>
-
-          <div className="GridImage" style={{ backgroundColor: "black" }}>
-            <img
-              className="imageLayoutthree"
-              src={
-                process.env.PUBLIC_URL +
-                `/uploads/${this.state.product_Data.productImage}`
-              }
-            />
-          </div>
-
-          <div>
-            <h2>{this.state.product_Data.productCategory}</h2>
-          </div>
-          <div>
-            <h2>{this.state.product_Data.productPrice}</h2>
-          </div>
-
-          <div className="ItemFromBtn">
-            <div className="formBtnAddress">
-              <p className="btnTextForm">BuyNow</p>
-            </div>
-          </div>
-        </div> */}
-
         <div className="ProductPreviewGrid">
           <div className="headingProductPreview">
             <p className="headingProductPreviewText"> My Product</p>

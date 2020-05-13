@@ -25,7 +25,13 @@ class DeliveryAddressForm extends Component {
     console.log(this.state);
   };
 
+  demoMethod = () => {
+    this.props.sendData(this.state);
+  };
+
   render() {
+    this.demoMethod();
+
     return (
       <Fragment>
         <div className="FormContainerAddressHeader">

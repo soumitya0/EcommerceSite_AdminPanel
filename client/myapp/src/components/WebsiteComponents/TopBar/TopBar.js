@@ -2,16 +2,19 @@ import React, { Component, Fragment } from "react";
 import "./topBarStyle.css";
 
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 class TopBar extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      userLoaction: "Faridabad",
-      showMenu: false,
-    };
   }
+
+  state = {
+    userLoaction: "Faridabad",
+    showMenu: false,
+    find: "",
+    data: [],
+  };
 
   showMenu = (event) => {
     event.preventDefault();
@@ -27,7 +30,42 @@ class TopBar extends Component {
     });
   };
 
+  onChangeHandler = (e) => {
+    const { value, name } = e.target;
+    this.setState({
+      [name]: value,
+    });
+
+    console.log(this.state.find);
+  };
+
+  onSubmit = (e) => {
+    e.preventDefault();
+
+    axios(`/api/search/${this.state.find}`)
+      .then((res) => {
+        console.log(res.data);
+        this.setState({
+          data: res.data,
+        });
+
+        console.log(this.state.data, "state");
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+      });
+  };
+
+  demoMethod() {
+    console.log(this.state.data, "demoMethod");
+    this.props.sendData(this.state.data);
+  }
+
   render() {
+    this.demoMethod();
     return (
       <Fragment>
         <div className="Client_TopbarGrid">
@@ -45,7 +83,20 @@ class TopBar extends Component {
             </i>
           </div>
           <div style={{ backgroundColor: "gray" }}>
-            <h4>Search BAR</h4>
+            <p>
+              <form onSubmit={this.onSubmit}>
+                <div>
+                  <input
+                    type="text"
+                    name="find"
+                    placeholder="Search Product.."
+                    onChange={this.onChangeHandler}
+                  />
+
+                  <input type="submit" value="Search" />
+                </div>
+              </form>
+            </p>
           </div>
 
           <div className="Login-Register">
@@ -79,7 +130,7 @@ class TopBar extends Component {
               </div>
             ) : null}
           </div>
-          <div></div>
+          <div style={{ backgroundColor: "green" }}></div>
         </div>
       </Fragment>
     );
