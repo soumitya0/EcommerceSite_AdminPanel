@@ -5,52 +5,59 @@ class DashBoardProductoutofStock extends Component {
     super(props);
 
     this.state = {
-      Data: [
-        {
-          ProductName: "Apple",
-          category: "fruits",
-          weight: "1kg",
-          price: "₹80",
-          isStock: false,
-        },
-        {
-          ProductName: "Mushroom",
-          category: "Vegetables",
-          weight: "1kg",
-          price: "₹100",
-          isStock: false,
-        },
-        {
-          ProductName: "Corn",
-          category: "Vegetables",
-          weight: "1kg",
-          price: "₹30",
-          isStock: false,
-        },
-        {
-          ProductName: "Tomato",
-          category: "Vegetables",
-          weight: "1kg",
-          price: "₹40",
-          isStock: false,
-        },
-        {
-          ProductName: "Pineapple",
-          category: "fruits",
-          weight: "1kg",
-          price: "₹50",
-          isStock: false,
-        },
-        {
-          ProductName: "orange",
-          category: "fruits",
-          weight: "1kg",
-          price: "₹60",
-          isStock: false,
-        },
-      ],
+      // Data: [
+      //   {
+      //     ProductName: "Apple",
+      //     category: "fruits",
+      //     weight: "1kg",
+      //     price: "₹80",
+      //     isStock: false,
+      //   },
+      //   {
+      //     ProductName: "Mushroom",
+      //     category: "Vegetables",
+      //     weight: "1kg",
+      //     price: "₹100",
+      //     isStock: false,
+      //   },
+      //   {
+      //     ProductName: "Corn",
+      //     category: "Vegetables",
+      //     weight: "1kg",
+      //     price: "₹30",
+      //     isStock: false,
+      //   },
+      //   {
+      //     ProductName: "Tomato",
+      //     category: "Vegetables",
+      //     weight: "1kg",
+      //     price: "₹40",
+      //     isStock: false,
+      //   },
+      //   {
+      //     ProductName: "Pineapple",
+      //     category: "fruits",
+      //     weight: "1kg",
+      //     price: "₹50",
+      //     isStock: false,
+      //   },
+      //   {
+      //     ProductName: "orange",
+      //     category: "fruits",
+      //     weight: "1kg",
+      //     price: "₹60",
+      //     isStock: false,
+      //   },
+      // ],
 
-      TableHeaderData: ["ID", "Name", " Category", "Weight", "Price", "Stcok"],
+      TableHeaderData: [
+        "ID",
+        "Product_id",
+        "Name",
+        " Category",
+        "Price",
+        "Stcok",
+      ],
     };
   }
 
@@ -65,23 +72,32 @@ class DashBoardProductoutofStock extends Component {
   }
 
   TableData() {
-    return this.state.Data.map((data, index) => {
-      const { ProductName, category, weight, price, isStock } = data;
+    return this.props.OutofStockData.map((data, index) => {
+      const {
+        productName,
+        productCategory,
+        _id,
+        priceWithWeight,
+        stock,
+      } = data;
 
       return (
         <tr>
           <td>{index}</td>
-          <td>{ProductName}</td>
-          <td>{category}</td>
-          <td>{weight}</td>
-          <td>{price}</td>
-          <td>{isStock}</td>
+
+          <td style={{ fontSize: "13px" }}>{_id}</td>
+          <td style={{ fontSize: "14px" }}>{productName}</td>
+          <td style={{ fontSize: "14px" }}>{productCategory}</td>
+          <td style={{ fontSize: "14px" }}>{priceWithWeight}</td>
+          <td style={{ fontSize: "14px" }}>{stock}</td>
         </tr>
       );
     });
   }
 
   render() {
+    console.log(this.props.OutofStockData, "OutofStockData ");
+
     return (
       <div className="tabelContainer marginTop-50">
         <div className="tableName text-700">

@@ -81,6 +81,21 @@
   border-left: 0.25rem solid #4e73df;
 }
 
+.border-CARD-RED {
+  border-left: 0.25rem solid red;
+}
+.border-CARD-GREEN {
+  border-left: 0.25rem solid green;
+}
+
+.border-CARD-YELLOW {
+  border-left: 0.25rem solid yellow;
+}
+
+.border-CARD-BLUE {
+  border-left: 0.25rem solid #4e73df;
+}
+
 .Dashborad-card-container {
   width: 100%;
   height: 100%;

@@ -7,7 +7,7 @@ class TopCard extends Component {
     console.log(this.props.name, "topBar");
 
     return (
-      <div className="Dashborad-card border-left-primary ">
+      <div className={`Dashborad-card border-${this.props.lineColor}`}>
         <div class="Dashborad-card-container  ">
           <div className="Dashborad-card-Name">
             {" "}
@@ -17,7 +17,7 @@ class TopCard extends Component {
             <h3>{this.props.value}</h3>
           </div>
           <div className="Dashborad-card-Image">
-            <i className="fas fa-warehouse cardImg"></i>
+            <i className={this.props.imgName}></i>
           </div>
         </div>
       </div>

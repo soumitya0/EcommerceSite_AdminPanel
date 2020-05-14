@@ -12,7 +12,8 @@ class DashboardProduct extends Component {
 
     this.state = {
       Data: [],
-
+      OutofStock: [],
+      StockAvailabel: [],
       TableHeaderData: [
         "Id",
         "ProductName",
@@ -25,6 +26,8 @@ class DashboardProduct extends Component {
         // "Image",
         "Delete",
       ],
+
+      stockData: "",
     };
   }
 
@@ -37,12 +40,14 @@ class DashboardProduct extends Component {
   }
 
   btnStockHandler = (e) => {
-    console.log(e.target.getAttribute("productid"));
-
+    console.log("I am Click");
+    console.log(this.state.stockData);
+    console.log(e.target.parentNode);
     console.log(e.target.getAttribute("Stock"));
-
-    var _id = e.target.getAttribute("productid");
-    var getStock = e.target.getAttribute("Stock");
+    let getStock = e.target.getAttribute("Stock");
+    console.log(getStock);
+    let _id = e.target.getAttribute("productid");
+    console.log(_id);
 
     let axiosConfig = {
       headers: {
@@ -50,30 +55,46 @@ class DashboardProduct extends Component {
       },
     };
 
-    if (getStock == "Avaliable") {
-      getStock = "OutofStock";
-    } else {
-      getStock = "Avaliable";
+    if (getStock == "OutofStock") {
+      console.log("this is Out of Stock change to Availabel");
+
+      let bodyData = {
+        stock: "Avaliable",
+      };
+
+      axios
+        .put(`/api/stock/${_id}`, bodyData, axiosConfig)
+        .then((res) => {
+          console.log(res.data);
+          //window.location.reload();
+        })
+        .catch((error) => {
+          console.log(error.response.data);
+        })
+        .catch((error) => {
+          console.log(error.response.data);
+        });
+    } else if (getStock == "Avaliable") {
+      console.log("this is Available change to Out of Stock");
+      let bodyData = {
+        stock: "OutofStock",
+      };
+
+      axios
+        .put(`/api/stock/${_id}`, bodyData, axiosConfig)
+        .then((res) => {
+          console.log(res.data);
+          //window.location.reload();
+        })
+        .catch((error) => {
+          console.log(error.response.data);
+        })
+        .catch((error) => {
+          console.log(error.response.data);
+        });
     }
 
-    console.log(getStock, "getStock");
-    const bodyData = {
-      stock: getStock,
-    };
-
-    axios
-
-      .put(`/api/stock/${_id}`, axiosConfig, bodyData)
-      .then((res) => {
-        console.log(res.data);
-        //window.location.reload();
-      })
-      .catch((error) => {
-        console.log(error.response.data);
-      })
-      .catch((error) => {
-        console.log(error.response.data);
-      });
+    window.location.reload();
   };
 
   btnDeleteHandler = (e) => {
@@ -168,6 +189,42 @@ class DashboardProduct extends Component {
         });
 
         console.log(this.state.Data, "state");
+
+        console.log(this.state.Data.length, "LENGTH");
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+      });
+
+    axios
+      .get("/api/product/stock/OutofStock")
+      .then((res) => {
+        console.log(res.data, "OUT-OF-STOCK");
+        this.setState({
+          OutofStock: res.data,
+        });
+        console.log(this.state.OutofStock, "STATE OUT-OF-STOCK");
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+      });
+
+    axios
+      .get("/api/product/stock/available")
+      .then((res) => {
+        console.log(res.data, "AVAILABLE ");
+
+        this.setState({
+          StockAvailabel: res.data,
+        });
+
+        console.log(this.state.StockAvailabel, "STATE - AVAILABLE ");
       })
       .catch((error) => {
         console.log(error.response.data);
@@ -184,13 +241,25 @@ class DashboardProduct extends Component {
         <p className="marginTop-10">Products here</p>
         <div className="GridCardInfo marginTop-20">
           <div>
-            <TopCard />
+            <TopCard
+              name="PRODUCT COUNT"
+              value={this.state.Data.length}
+              imgName="fas fa-shopping-basket"
+            />
           </div>
           <div>
-            <TopCard />
+            <TopCard
+              name="STOCK COUNT"
+              value={this.state.StockAvailabel.length}
+              imgName="fas fa-cubes"
+            />
           </div>
           <div>
-            <TopCard />
+            <TopCard
+              name="OUT OF STOCK"
+              value={this.state.OutofStock.length}
+              imgName="far fa-circle"
+            />
           </div>
         </div>
 

@@ -26,13 +26,12 @@ const DashBoardCategory = () => {
       <p className="marginTop-10">category here</p>
       <div className="GridCardInfo marginTop-20">
         <div>
-          <TopCard name="CATEGORY COUNT" value={length} />
-        </div>
-        <div>
-          <TopCard />
-        </div>
-        <div>
-          <TopCard />
+          <TopCard
+            name="CATEGORY COUNT"
+            value={length}
+            imgName="fas fa-list"
+            lineColor="CARD-BLUE"
+          />
         </div>
       </div>
 

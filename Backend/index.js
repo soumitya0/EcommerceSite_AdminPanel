@@ -49,4 +49,7 @@ app.use("/api/order", require("./Routes/client/Order/Order"));
 //@des  Seacrh Bar Product
 app.use("/api/search", require("./Routes/client/SearchBarAPi/Search"));
 
+//@dec  Product
+app.use("/api/product", require("./Routes/adminPanle/Product/Product"));
+
 app.listen(PORT, () => console.log(`i am running port ${PORT}`));

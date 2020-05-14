@@ -12,7 +12,57 @@ import DashBoardOrder from "../DashBoardOrders/DashBoardOrder";
 import DashBoardCategory from "../DashboardCategory/DashBoardCategory";
 import DashBoardAdmin from "../DashBoardAdmin/DashBoardAdmin";
 import DashboardProduct from "../DashBoardProduct/DashboardProduct";
+
+//AXIOS
+import axios from "axios";
+
 class Dashboard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      CountProduct: "",
+      OutofStock: [],
+      StockAvailabel: [],
+      TotalOrderPending: "",
+    };
+  }
+
+  componentDidMount() {
+    axios
+      .get("api/product/stock/OutofStock")
+      .then((res) => {
+        console.log(res.data, "OUT-OF-STOCK");
+        this.setState({
+          OutofStock: res.data,
+        });
+        console.log(this.state.OutofStock, "STATE OUT-OF-STOCK");
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+      });
+
+    const availabel = axios
+      .get("/api/product/stock/available")
+      .then((res) => {
+        console.log(res.data, "AVAILABLE ");
+
+        this.setState({
+          StockAvailabel: res.data,
+        });
+
+        console.log(this.state.StockAvailabel, "STATE - AVAILABLE ");
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+      });
+  }
+
   render() {
     return (
       <Fragment>

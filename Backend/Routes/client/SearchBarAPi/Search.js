@@ -2,6 +2,9 @@ const express = require("express");
 const router = express.Router();
 const SchemaProduct = require("../../../Models/Admin_Panel/ProductSchema/SchemaProduct");
 
+// @Api         GET api/search/:find
+// @dec         Find  Product
+// access       Public
 router.get("/:find", async (req, res) => {
   try {
     const data = await SchemaProduct.find({ productName: req.params.find });
