@@ -1,0 +1,114 @@
+.EditContainer {
+  position: absolute;
+  height: 240px;
+  width: 750px;
+  margin-top: -210px;
+  margin-left: 350px;
+  background-color: #f7f7f7;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  border: 2px solid #eee;
+  border-radius: 10px;
+}
+
+.EditContainer-Grid {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 24%);
+  grid-template-rows: repeat(4, 22%);
+  grid-gap: 10px;
+}
+
+.ContainerImg {
+  grid-column: 4;
+  grid-row: 1/4;
+}
+
+.EditLable {
+  font-size: 1.1rem;
+  letter-spacing: normal;
+  font-weight: 500;
+  color: #649ea0;
+  text-align: center;
+}
+
+.ContainerDes {
+  grid-column: 1/3;
+}
+
+.ContainerAciton {
+  grid-column: 3;
+}
+
+.ContainerInput {
+  margin-top: 5px;
+  width: 100%;
+  height: 25px;
+  font-weight: 500;
+  color: #6e707e;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #d1d3e2;
+  border-radius: 0.35rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  margin-left: 5px;
+}
+
+.ContainerInput:focus,
+.ContainerInput-weight:focus,
+.ContainerInput-Price:focus {
+  color: #6e707e;
+  background-color: #fff;
+  border-color: #bac8f3;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
+}
+
+.EditLable-weight {
+  font-size: 1.1rem;
+  letter-spacing: normal;
+  font-weight: 500;
+  color: #649ea0;
+  margin-left: 8px;
+}
+
+.ContainerInput-weight {
+  margin-top: 5px;
+  width: 37%;
+  height: 25px;
+  font-weight: 500;
+  color: #6e707e;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #d1d3e2;
+  border-radius: 0.35rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  margin-left: 5px;
+}
+
+.EditLable-Price {
+  font-size: 1.1rem;
+  letter-spacing: normal;
+  font-weight: 500;
+  color: #649ea0;
+  margin-left: 8px;
+  margin-left: -100px;
+}
+
+.ContainerInput-Price {
+  margin-left: -100px;
+  margin-top: 5px;
+  width: 100%;
+  height: 25px;
+  font-weight: 500;
+  color: #6e707e;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #d1d3e2;
+  border-radius: 0.35rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn_submitEdit {
+  margin: 0px;
+}

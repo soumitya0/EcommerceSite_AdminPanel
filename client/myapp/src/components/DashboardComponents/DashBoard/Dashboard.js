@@ -15,6 +15,7 @@ import DashboardProduct from "../DashBoardProduct/DashboardProduct";
 
 //AXIOS
 import axios from "axios";
+import EditProduct from "../DashBoardManageProduct/EditProduct/EditProduct";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -102,6 +103,10 @@ class Dashboard extends Component {
 
                 <Route path="/dashboard/ADMIN" exact>
                   <DashBoardAdmin />
+                </Route>
+
+                <Route path="/dashboard/editProduct" exact>
+                  <EditProduct />
                 </Route>
               </Switch>
             </div>

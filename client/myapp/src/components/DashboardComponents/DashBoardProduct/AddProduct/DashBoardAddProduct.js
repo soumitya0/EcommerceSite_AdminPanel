@@ -105,7 +105,7 @@ class DashBoardAddProduct extends Component {
     };
 
     axios
-      .post("/api/addproduct", fd, axiosConfig)
+      .post("/api/addproduct", fd, axiosConfig, bodyData)
       .then((res) => {
         console.log("UI");
         console.log(res.data);
