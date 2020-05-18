@@ -8,12 +8,16 @@ import { Link } from "react-router-dom";
 
 import axios from "axios";
 
+import { Redirect } from "react-router-dom";
+
 const BuyProduct = (props) => {
   const [reciverdata, setReciverData] = useState(0); //getting Reciver data or address
 
   const [Product_Data, setProductData] = useState(0); //getting Product data
 
   const [Userdata, setData] = useState(); // gettign login user
+
+  const [UserLogin, setUserLogin] = useState(true);
 
   //API call
   useEffect(() => {
@@ -54,63 +58,79 @@ const BuyProduct = (props) => {
     globalObj.Userdata = Userdata;
     globalObj.Productdata = Product_Data;
 
-    localStorage.setItem("OrderData", JSON.stringify(globalObj));
-    // var user = JSON.parse(localStorage.getItem("OrderData"));
-    // console.log(user, "JSON_PArse");
+    if (globalObj.Userdata == undefined) {
+      console.log("USER DATA IS UNDEFINED");
+      setUserLogin(false);
+    } else {
+      localStorage.setItem("OrderData", JSON.stringify(globalObj));
+      // var user = JSON.parse(localStorage.getItem("OrderData"));
+      // console.log(user, "JSON_PArse");
 
-    console.log(globalObj, "globalObj");
+      console.log(globalObj, "globalObj");
 
-    console.log("i am click");
-    console.log(reciverdata, "reci.verData"); //
+      console.log("i am click");
+      console.log(reciverdata, "reci.verData"); //
 
-    console.log(Product_Data, "Product_Data"); //
+      console.log(Product_Data, "Product_Data"); //
 
-    console.log(Userdata, "userData"); //
+      console.log(Userdata, "userData"); //
 
-    //instaMojo
-    const data = {
-      purpose: "buy",
-      amount: Product_Data.productPrice,
-      buyer_name: Userdata.UserName,
-      email: Userdata.UserEmail,
-      user_id: Userdata._id,
-      redirect_url: `http://localhost:8000/api/bid/callback?user_id=${Userdata._id}`,
-      weebhook_url: "/webhook/",
-    };
+      //instaMojo
+      const data = {
+        purpose: "buy",
+        amount: Product_Data.productPrice,
+        buyer_name: Userdata.UserName,
+        email: Userdata.UserEmail,
+        user_id: Userdata._id,
+        redirect_url: `http://localhost:8000/api/bid/callback?user_id=${Userdata._id}`,
+        weebhook_url: "/webhook/",
+      };
 
-    axios
-      .post("/api/bid/pay/", data)
-      .then((res) => {
-        console.log("resp", res.data);
+      axios
+        .post("/api/bid/pay/", data)
+        .then((res) => {
+          console.log("resp", res.data);
 
-        window.location.href = res.data; // this will help to redirect to res.data i.e long url
-      })
-      .catch((err) => {
-        console.log(err.response.data);
-      });
+          window.location.href = res.data; // this will help to redirect to res.data i.e long url
+        })
+        .catch((err) => {
+          console.log(err.response.data);
+        });
+    }
   };
 
   return (
     <Fragment>
-      <div className="buyProductGrid">
-        <div className="buyProductAddressForm ">
-          <DeliveryAddressForm sendData={getDataformChild} />
-        </div>
+      {UserLogin == true ? (
+        <div className="buyProductGrid">
+          <div className="buyProductAddressForm ">
+            <DeliveryAddressForm sendData={getDataformChild} />
+          </div>
 
-        <div>
-          <ProductPreview
-            Product_id={props.match.params.id}
-            sendProduct={getDataProduct}
-          />
-        </div>
-        <div>
-          <div className="checkOutBtn">
-            <p className="checkOutText" onClick={onBuyClick}>
-              Checkout
-            </p>
+          <div>
+            <ProductPreview
+              Product_id={props.match.params.id}
+              sendProduct={getDataProduct}
+            />
+          </div>
+          <div>
+            <div className="checkOutBtn">
+              <p className="checkOutText" onClick={onBuyClick}>
+                Checkout
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <Redirect
+          to={{
+            pathname: "/login",
+            state: {
+              working: "i am working",
+            },
+          }}
+        />
+      )}
     </Fragment>
   );
 };

@@ -57,6 +57,7 @@ router.post(
       ProductCategory,
       ProductPrice,
       PaymentRequestId,
+      instaMojoOrderDetails,
     } = req.body;
 
     try {
@@ -71,6 +72,8 @@ router.post(
         ProductCategory: ProductCategory,
         ProductPrice: ProductPrice,
         PaymentRequestId: PaymentRequestId,
+        instaMojoOrderDetails: instaMojoOrderDetails,
+        orderStatus: "pending",
       });
 
       const orderData = await order.save();

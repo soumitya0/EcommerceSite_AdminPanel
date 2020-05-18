@@ -57,8 +57,14 @@ router.get("/callback", async (req, res) => {
   if (responseData.payment_id) {
     let userId = responseData.user_id;
     console.log(userId);
+    var dataInstaMojo = JSON.stringify(responseData);
 
-    return res.redirect("http://localhost:3000/payment-complete");
+    var responseInstaMojo = encodeURIComponent(dataInstaMojo); //pass
+    console.log(responseInstaMojo, "STRINGIFY");
+
+    return res.redirect(
+      "http://localhost:3000/payment-complete/?valid=" + dataInstaMojo,
+    );
   }
 });
 

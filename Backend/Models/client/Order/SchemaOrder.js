@@ -10,7 +10,6 @@ const SchemaOrder = mongoose.Schema({
     type: String,
     require: true,
   },
-
   ReciverName: {
     type: String,
     require: true,
@@ -49,6 +48,13 @@ const SchemaOrder = mongoose.Schema({
     require: true,
   },
 
+  instaMojoOrderDetails: {
+    type: Object,
+  },
+  orderStatus: {
+    type: String,
+    require: true,
+  },
   date: {
     type: Date,
     default: Date.now,
