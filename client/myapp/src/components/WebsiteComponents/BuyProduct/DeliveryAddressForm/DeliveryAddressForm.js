@@ -46,7 +46,7 @@ class DeliveryAddressForm extends Component {
                   className="formInput"
                   type="text"
                   name="reciverName"
-                  placeholder="Product Name"
+                  placeholder="Reciver Name"
                   onChange={this.onChangeHandler}
                   required
                 />
@@ -61,7 +61,7 @@ class DeliveryAddressForm extends Component {
                   minLength="10"
                   maxLength="10"
                   name="phoneNumber"
-                  placeholder="Product Name"
+                  placeholder="Reciver Phone Number"
                   onChange={this.onChangeHandler}
                   required
                 />
@@ -73,7 +73,7 @@ class DeliveryAddressForm extends Component {
                   className="formInput"
                   type="text"
                   name="houseNumber"
-                  placeholder="Product Name"
+                  placeholder="Reciver Product Name"
                   onChange={this.onChangeHandler}
                   required
                 />
@@ -88,7 +88,7 @@ class DeliveryAddressForm extends Component {
                   onChange={this.onChangeHandler}
                   required
                 >
-                  <option>Sector</option>
+                  <option>Select Sector</option>
                   <option value="Sector-30">Sector-30</option>
                   <option value="Sector-31">Sector-31</option>
                   <option value="Sector-28">Sector-28</option>
@@ -102,7 +102,7 @@ class DeliveryAddressForm extends Component {
                   className="formInput"
                   type="text"
                   name="fullAddress"
-                  placeholder="Product Name"
+                  placeholder="ex: HouseNo sector cityName "
                   onChange={this.onChangeHandler}
                   required
                 />

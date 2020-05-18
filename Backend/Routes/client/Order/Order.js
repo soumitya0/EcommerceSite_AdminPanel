@@ -31,9 +31,13 @@ router.post(
     MiddleWare_Auth,
     [
       check("UserName", "UserName requires").not().isEmpty(),
+
       check("ReciverName", "ReciverName requires").not().isEmpty(),
-      check("ReciverAddress", "ReciverAddress requires").not().isEmpty(),
+      check("ReciverPhone", "ReciverPhone requires").not().isEmpty(),
+      check("ReciverHouseNo", "ReciverHouseNo requires").not().isEmpty(),
+      check("ReciverSector", "ReciverSector requires").not().isEmpty(),
       check("FullAddress", "FullAddress requires").not().isEmpty(),
+
       check("ProductName", "ProductName requires").not().isEmpty(),
       check("ProductId", "ProductId requires").not().isEmpty(),
       check("ProductCategory", "ProductCategory requires").not().isEmpty(),
@@ -49,13 +53,18 @@ router.post(
 
     const {
       UserName,
+
       ReciverName,
-      ReciverAddress,
+      ReciverPhone,
+      ReciverHouseNo,
+      ReciverSector,
       FullAddress,
+
       ProductName,
       ProductId,
       ProductCategory,
       ProductPrice,
+
       PaymentRequestId,
       instaMojoOrderDetails,
     } = req.body;
@@ -64,13 +73,19 @@ router.post(
       const order = new SchemaOrder({
         userId: req.user.id,
         UserName: UserName,
+
         ReciverName: ReciverName,
-        ReciverAddress: ReciverAddress,
+        ReciverPhone: ReciverPhone,
+        ReciverHouseNo: ReciverHouseNo,
+        ReciverSector: ReciverSector,
+
         FullAddress: FullAddress,
+
         ProductName: ProductName,
         ProductId: ProductId,
         ProductCategory: ProductCategory,
         ProductPrice: ProductPrice,
+
         PaymentRequestId: PaymentRequestId,
         instaMojoOrderDetails: instaMojoOrderDetails,
         orderStatus: "pending",

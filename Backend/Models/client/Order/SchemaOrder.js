@@ -15,7 +15,17 @@ const SchemaOrder = mongoose.Schema({
     require: true,
   },
 
-  ReciverAddress: {
+  ReciverPhone: {
+    type: Number,
+    require: true,
+  },
+
+  ReciverHouseNo: {
+    type: Number,
+    require: true,
+  },
+
+  ReciverSector: {
     type: String,
     require: true,
   },

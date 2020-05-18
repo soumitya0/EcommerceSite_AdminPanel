@@ -45,11 +45,14 @@ class Thankyou extends Component {
 
       let bodyData = {
         UserName: user.Userdata.UserName,
-        ReciverName: user.reciverdatd.reciverName,
-        ReciverAddress: user.reciverdatd.houseNumber,
-        FullAddress: user.reciverdatd.fullAddress,
-        ProductName: user.Productdata.productName,
 
+        ReciverName: user.reciverdatd.reciverName,
+        ReciverPhone: user.reciverdatd.phoneNumber,
+        ReciverHouseNo: user.reciverdatd.houseNumber,
+        ReciverSector: user.reciverdatd.Sector,
+        FullAddress: user.reciverdatd.fullAddress,
+
+        ProductName: user.Productdata.productName,
         ProductId: user.Productdata._id,
         ProductCategory: user.Productdata.productCategory,
         ProductPrice: user.Productdata.productPrice,
