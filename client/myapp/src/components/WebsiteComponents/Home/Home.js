@@ -10,6 +10,7 @@ import Register from "../RegisterUser/Register";
 import ViewProduct from "../View/ViewProduct";
 import BuyProduct from "../BuyProduct/BuyProduct";
 import Thankyou from "../Thankyou/Thankyou";
+import Myorder from "../Myorder/Myorder";
 const Home = () => {
   const [data, setData] = useState(0);
 
@@ -46,6 +47,10 @@ const Home = () => {
 
         <Route exact path="/payment-complete">
           <Thankyou />
+        </Route>
+
+        <Route exact path="/myOrder">
+          <Myorder />
         </Route>
       </BrowserRouter>
     </Fragment>

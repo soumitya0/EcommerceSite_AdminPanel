@@ -114,25 +114,6 @@ router.get("/", MiddleWare_Admin, async (req, res) => {
   }
 });
 
-//@Api            GET  /api/order/:id
-//@dec            Getting  order by id
-//@access         private
-
-router.get("/:id", MiddleWare_Auth, async (req, res) => {
-  try {
-    const data = await SchemaOrder.find({ userId: req.params.id });
-    if (!data) {
-      return res.send(400).json({ msg: "Order Not Found " });
-    } else {
-      res.json(data);
-    }
-  } catch (error) {
-    console.error(error.message);
-
-    res.status(500).send("Server Error");
-  }
-});
-
 //@Api            PUT  /api/order/:id
 //@dec            UPDATING orderStatus pending - onway - delivered
 //@access         private

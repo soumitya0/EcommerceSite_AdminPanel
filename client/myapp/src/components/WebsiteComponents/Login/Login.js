@@ -38,9 +38,11 @@ class Login extends Component {
         console.log(res.data.token);
         const token = res.data.token;
         localStorage.setItem("UserToken", token);
+        console.log(localStorage.getItem("UserToken"), "TOKEN");
         this.setState({
           login: true,
         });
+        console.log(this.state.login);
       })
       .catch((error) => {
         console.log(error.response.data);
@@ -51,6 +53,7 @@ class Login extends Component {
   };
 
   render() {
+    console.log(this.state, "LOGIN JS");
     return (
       <Fragment>
         <div className="LoginGrid">
@@ -62,7 +65,7 @@ class Login extends Component {
             />
           </div>
 
-          {!this.state.login ? (
+          {this.state.login == false ? (
             <form onSubmit={this.onSubmit}>
               <div className="FormGrid">
                 <div>
@@ -109,9 +112,6 @@ class Login extends Component {
             <Redirect
               to={{
                 pathname: "/",
-                state: {
-                  working: "i am working",
-                },
               }}
             />
           )}

@@ -1,0 +1,9 @@
+.layoutUserOrder {
+  margin: 50px 80px;
+  width: 75%;
+  height: 480px;
+  display: grid;
+  grid-template-columns: 40% 40%;
+  grid-column-gap: 15%;
+  grid-row-gap: 20%;
+}

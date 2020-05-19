@@ -162,7 +162,7 @@ router.get("/:id", async (req, res) => {
     const data = await SchemaProduct.findById(req.params.id);
 
     if (!data) {
-      return res.send(400).json({ msg: "Product Not Found " });
+      return res.status(400).json({ msg: "Product Not Found " });
     } else {
       res.json(data);
     }

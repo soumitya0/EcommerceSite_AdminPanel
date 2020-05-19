@@ -3,6 +3,7 @@ import "./topBarStyle.css";
 
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Account from "../Account/Account";
 
 class TopBar extends Component {
   constructor(props) {
@@ -78,59 +79,92 @@ class TopBar extends Component {
           </div>
 
           <div className="mapMarkerLoaction">
-            <i class=" mapMarker fas fa-map-marker-alt  ">
+            {/* <i class=" mapMarker fas fa-map-marker-alt  ">
               {this.state.userLoaction}
-            </i>
+            </i> */}
           </div>
-          <div style={{ backgroundColor: "gray" }}>
+          <div>
             <p>
               <form onSubmit={this.onSubmit}>
                 <div>
                   <input
+                    className="formInput"
                     type="text"
                     name="find"
+                    style={{ width: "90%" }}
                     placeholder="Search Product.."
                     onChange={this.onChangeHandler}
                   />
 
-                  <input type="submit" value="Search" />
+                  <span>
+                    <button
+                      type="submit"
+                      style={{ height: "40px", width: "40px" }}
+                    >
+                      <i class="fa fa-search"></i>
+                    </button>
+                  </span>
                 </div>
               </form>
             </p>
           </div>
 
           <div className="Login-Register">
-            <div className="Register_topbar" onClick={this.showMenu}>
-              <h6>MyAccount</h6>
+            {/* LOGIN AND REGISTER */}
 
-              <h6>
-                Login/Signup{" "}
-                <span>
-                  {" "}
-                  <i class="fas fa-sort-down" />
-                </span>
-              </h6>
-            </div>
+            {localStorage.getItem("UserToken") ? (
+              <div className="Register_topbar" onClick={this.showMenu}>
+                <h6>SOUMITYA</h6>
+
+                <h6>
+                  MyAccount{" "}
+                  <span>
+                    {" "}
+                    <i class="fas fa-sort-down" />
+                  </span>
+                </h6>
+              </div>
+            ) : (
+              <div className="Register_topbar" onClick={this.showMenu}>
+                <h6>MyAccount</h6>
+
+                <h6>
+                  Login/Signup{" "}
+                  <span>
+                    {" "}
+                    <i class="fas fa-sort-down" />
+                  </span>
+                </h6>
+              </div>
+            )}
+
+            {/* DROP DOWN MENU */}
 
             {this.state.showMenu ? (
-              <div className="menuItem">
-                <div>
-                  <Link to="/login">
-                    <div className="AccountBtn loginbtn marginTop-10">
-                      Login
-                    </div>
-                  </Link>
+              localStorage.getItem("UserToken") ? (
+                <Account />
+              ) : (
+                <div className="menuItem">
+                  <div>
+                    <Link to="/login">
+                      <div className="AccountBtn loginbtn marginTop-10">
+                        Login
+                      </div>
+                    </Link>
 
-                  <Link to="/register">
-                    <div className="AccountBtn loginbtn marginTop-20">
-                      Register
-                    </div>
-                  </Link>
+                    <Link to="/register">
+                      <div className="AccountBtn loginbtn marginTop-20">
+                        Register
+                      </div>
+                    </Link>
+                  </div>
                 </div>
-              </div>
+              )
             ) : null}
           </div>
-          <div style={{ backgroundColor: "green" }}></div>
+
+          {/* ADD TO CART */}
+          <div></div>
         </div>
       </Fragment>
     );

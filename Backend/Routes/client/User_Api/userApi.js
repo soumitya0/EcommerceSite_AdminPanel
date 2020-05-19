@@ -3,6 +3,9 @@ const express = require("express");
 const router = express.Router();
 
 // schema
+const SchemaOrder = require("../../../Models/client/Order/SchemaOrder");
+
+// schema
 const SchemaUser = require("../../../Models/client/UserSchema/SchemaUser");
 
 const MiddleWare_User = require("../../../middleWare/UserAuth");
@@ -152,6 +155,20 @@ router.get("/", MiddleWare_User, async (req, res) => {
     const UserDetails = await SchemaUser.findById(req.user.id).select(
       "-password",
     );
+    res.json(UserDetails);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+//@API          /api/user/myorder
+//@Desc         getting user Order
+//Access        Private
+
+router.get("/myorder", MiddleWare_User, async (req, res) => {
+  try {
+    const UserDetails = await SchemaOrder.find({ userId: req.user.id });
     res.json(UserDetails);
   } catch (error) {
     console.error(error.message);
