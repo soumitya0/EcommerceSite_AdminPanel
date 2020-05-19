@@ -89,7 +89,9 @@ class DashBoardProductoutofStock extends Component {
           <td style={{ fontSize: "14px" }}>{productName}</td>
           <td style={{ fontSize: "14px" }}>{productCategory}</td>
           <td style={{ fontSize: "14px" }}>{priceWithWeight}</td>
-          <td style={{ fontSize: "14px" }}>{stock}</td>
+          <td style={{ fontSize: "14px" }}>
+            <div className={`Stock-${stock}`}>{stock}</div>
+          </td>
         </tr>
       );
     });

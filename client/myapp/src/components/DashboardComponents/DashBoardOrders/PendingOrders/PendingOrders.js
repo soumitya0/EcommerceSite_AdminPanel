@@ -5,56 +5,11 @@ class PendingOrders extends Component {
     super(props);
 
     this.state = {
-      Data: [
-        {
-          ProductId: "45456",
-          ProductName: "banana",
-          location: "sector30",
-          isPending: false,
-          price: "₹80",
-        },
-        {
-          ProductId: "65456",
-          ProductName: "mango",
-          location: "sector30",
-          isPending: false,
-          price: "₹5000",
-        },
-        {
-          ProductId: "454512",
-          ProductName: "Chocolate",
-          location: "sector30",
-          isPending: false,
-          price: "₹8000",
-        },
-        {
-          ProductId: "4654684698",
-          ProductName: "Sugar",
-          location: "sector30",
-          isPending: false,
-          price: "₹80000",
-        },
-        {
-          ProductId: "45413351656",
-          ProductName: "Pineapple",
-          location: "sector30",
-          isPending: false,
-          price: "₹80000",
-        },
-        {
-          ProductId: "651213",
-          ProductName: "orange",
-          location: "sector28",
-          isPending: false,
-          price: "₹800052",
-        },
-      ],
+      Data: [],
 
       TableHeaderData: [
-        "ID",
-        "ProductId",
-        " ProductName",
-
+        "Reciver Name",
+        "ProductName",
         "location",
         "price",
         "Pending",
@@ -73,23 +28,34 @@ class PendingOrders extends Component {
   }
 
   TableData() {
-    return this.state.Data.map((data, index) => {
-      const { ProductId, ProductName, location, price, isPending } = data;
+    return this.props.pendingOrder.map((data, index) => {
+      const {
+        ProductId,
+
+        ReciverName,
+        ProductName,
+        FullAddress,
+        ProductPrice,
+        orderStatus,
+      } = data;
 
       return (
-        <tr>
-          <td>{index}</td>
-          <td>{ProductId}</td>
+        <tr style={{ fontSize: "15px" }}>
+          {/* <td>{ProductId}</td> */}
+          <td>{ReciverName}</td>
           <td>{ProductName}</td>
-          <td>{location}</td>
-          <td>{price}</td>
-          <td>{isPending}</td>
+          <td>{FullAddress}</td>
+          <td>{ProductPrice}</td>
+          <td style={{ cursor: "pointer" }}>
+            <div className={`orderStatus-${orderStatus}`}>{orderStatus}</div>
+          </td>
         </tr>
       );
     });
   }
 
   render() {
+    console.log(this.props.pendingOrder, "props pendingOrder");
     return (
       <div className="tabelContainer marginTop-50">
         <div className="tableName text-700">

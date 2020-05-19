@@ -8,6 +8,8 @@ const SchemaOrder = require("../../../Models/client/Order/SchemaOrder");
 //MiddleWare
 const MiddleWare_Auth = require("../../../middleWare/UserAuth");
 
+const MiddleWare_Admin = require("../../../middleWare/auth");
+
 // Express Validator
 const { check, validationResult } = require("express-validator");
 
@@ -98,5 +100,107 @@ router.post(
     }
   },
 );
+
+//@Api            GET  /api/order
+//@dec            Getting  all order
+//@access         private
+router.get("/", MiddleWare_Admin, async (req, res) => {
+  try {
+    const data = await SchemaOrder.find({});
+    res.json(data);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+//@Api            GET  /api/order/:id
+//@dec            Getting  order by id
+//@access         private
+
+router.get("/:id", MiddleWare_Auth, async (req, res) => {
+  try {
+    const data = await SchemaOrder.find({ userId: req.params.id });
+    if (!data) {
+      return res.send(400).json({ msg: "Order Not Found " });
+    } else {
+      res.json(data);
+    }
+  } catch (error) {
+    console.error(error.message);
+
+    res.status(500).send("Server Error");
+  }
+});
+
+//@Api            PUT  /api/order/:id
+//@dec            UPDATING orderStatus pending - onway - delivered
+//@access         private
+
+router.put("/:id", MiddleWare_Admin, async (req, res) => {
+  try {
+    await SchemaOrder.findByIdAndUpdate({ _id: req.params.id }, req.body);
+
+    res.send({
+      message: "success",
+      Update: "1",
+    });
+  } catch (error) {
+    console.error(error.message);
+
+    res.status(500).send("Server Error");
+  }
+});
+
+//@Api            get  /api/order/pending/data
+//@dec            getting  pending order
+//@access         private
+router.get("/pending/data", MiddleWare_Admin, async (req, res) => {
+  try {
+    const data = await SchemaOrder.find({ orderStatus: "pending" });
+    if (!data) {
+      return res.send(400).json({ msg: "pending order  Not Found " });
+    } else {
+      res.json(data);
+    }
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("server error");
+  }
+});
+
+//@Api            get  /api/order/oway/data
+//@dec            getting  pending order
+//@access         private
+router.get("/onway/data", MiddleWare_Admin, async (req, res) => {
+  try {
+    const data = await SchemaOrder.find({ orderStatus: "onWay" });
+    if (!data) {
+      return res.send(400).json({ msg: "onWay order  Not Found " });
+    } else {
+      res.json(data);
+    }
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("server error");
+  }
+});
+
+//@Api            get  /api/order/delivered/data
+//@dec            getting  pending order
+//@access         private
+router.get("/delivered/data", MiddleWare_Admin, async (req, res) => {
+  try {
+    const data = await SchemaOrder.find({ orderStatus: "delivered" });
+    if (!data) {
+      return res.send(400).json({ msg: "delivered order  Not Found " });
+    } else {
+      res.json(data);
+    }
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("server error");
+  }
+});
 
 module.exports = router;

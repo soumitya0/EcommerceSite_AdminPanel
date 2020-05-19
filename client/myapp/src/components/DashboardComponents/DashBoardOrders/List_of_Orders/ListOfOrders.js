@@ -1,59 +1,56 @@
 import React, { Component } from "react";
 
+import axios from "axios";
+
 class ListOfOrders extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      Data: [
-        {
-          ProductId: "848498",
-          ProductName: "Apple",
-          category: "fruits",
-          UserName: "RAJ",
-          UserPhone: "95447147881",
-          DeliveryLocation: "sector-30",
-          Weight: "2kg",
-          Price: "160",
-          Panding: "Yes",
-        },
-        {
-          ProductId: "848498",
-          ProductName: "Banana",
-          category: "fruits",
-          UserName: "RAM",
-          UserPhone: "95446547881",
-          DeliveryLocation: "sector-30",
-          Weight: "1kg",
-          Price: "160",
-          Panding: "Yes",
-        },
-        {
-          ProductId: "848498",
-          ProductName: "Apple",
-          category: "fruits",
-          UserName: "soumitya chauhan",
-          UserPhone: "95447147881",
-          DeliveryLocation: "sector-30",
-          Weight: "2kg",
-          Price: "160",
-          Panding: "Yes",
-        },
-      ],
+      Data: [],
       TableHeaderData: [
         "# ",
         "ProductId",
         "ProductName",
         "category",
-        "UserName",
-        "UserPhone",
-        "DeliveryLocation",
-        "Weight",
         "Price",
-        "Panding",
-        "Remove",
+
+        "UserName",
+        "ReciverName",
+        "ReciverPhone",
+        "Sector",
+        "DeliveryLocation",
+        "orderStatus",
+        "date",
+        // "Remove",
       ],
+
+      changeOrderStatus: false,
     };
+  }
+
+  componentDidMount() {
+    console.log(localStorage.getItem("AdminLogin"));
+
+    let axiosConfig = {
+      headers: {
+        "X-Auth-Token": localStorage.getItem("AdminLogin"),
+      },
+    };
+
+    axios
+      .get("/api/order", axiosConfig)
+      .then((res) => {
+        console.log(res.data, "i  am ordder data");
+        this.setState({
+          Data: res.data,
+        });
+
+        console.log(this.state, "STATE");
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+      });
   }
 
   TableHeader() {
@@ -63,36 +60,99 @@ class ListOfOrders extends Component {
   TableData() {
     return this.state.Data.map((data, index) => {
       const {
+        _id,
         ProductId,
         ProductName,
-        category,
-        UserName,
-        UserPhone,
-        DeliveryLocation,
-        Weight,
-        Price,
-        Panding,
-      } = data;
+        ProductCategory,
 
+        UserName,
+        ReciverName,
+        ReciverPhone,
+        ReciverSector,
+        FullAddress,
+        ProductPrice,
+        orderStatus = this.state.Data.orderStatus,
+        date = this.state.Data.data,
+      } = data;
       return (
-        <tr>
+        <tr style={{ fontSize: "15px" }}>
           <td>{index}</td>
           <td>{ProductId}</td>
           <td>{ProductName}</td>
-          <td>{category}</td>
+          <td>{ProductCategory}</td>
+
+          <td>{ProductPrice}</td>
           <td>{UserName}</td>
-          <td>{UserPhone}</td>
-          <td>{DeliveryLocation}</td>
-          <td>{Weight}</td>
-          <td>{Price}</td>
-          <td>{Panding}</td>
-          <td>
-            <button>Remove</button>
+          <td>{ReciverName}</td>
+          <td>{ReciverPhone}</td>
+          <td>{ReciverSector}</td>
+          <td>{FullAddress}</td>
+          <td style={{ cursor: "pointer" }}>
+            <div
+              onClick={this.btnOrderHandler}
+              orderStatus={orderStatus}
+              className={`orderStatus-${orderStatus}`}
+              order={_id}
+            >
+              {orderStatus}
+            </div>
           </td>
+          <td>{date.slice(0, 10)}</td>
+          {/* <td>
+            <button>Remove</button>
+          </td> */}
         </tr>
       );
     });
   }
+
+  btnOrderHandler = (e) => {
+    console.log("i am click");
+    console.log(e.target);
+
+    console.log(e.target.getAttribute("order"));
+    console.log(e.target.getAttribute("orderstatus"));
+    let _id = e.target.getAttribute("order");
+    let getOrderStatus = e.target.getAttribute("orderstatus");
+
+    let axiosConfig = {
+      headers: {
+        "X-Auth-Token": localStorage.getItem("AdminLogin"),
+      },
+    };
+
+    let bodyData = {
+      orderStatus: "",
+    };
+
+    if (getOrderStatus == "pending") {
+      bodyData.orderStatus = "onWay";
+    } else if ((getOrderStatus = "onWay")) {
+      bodyData.orderStatus = "delivered";
+    } else if ((getOrderStatus = "delivered")) {
+      alert(" Product Deliverd");
+    }
+
+    axios
+      .put(`/api/order/${_id}`, bodyData, axiosConfig)
+
+      .then((res) => {
+        console.log(res.data);
+        this.setState({
+          changeOrderStatus: true,
+        });
+        console.log(this.state.changeOrderStatus);
+      })
+
+      .catch((error) => {
+        console.log(error.response.data);
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+      });
+
+    window.location.reload();
+  };
 
   render() {
     return (

@@ -45,7 +45,7 @@ class Dashboard extends Component {
         console.log(error.response.data);
       });
 
-    const availabel = axios
+    axios
       .get("/api/product/stock/available")
       .then((res) => {
         console.log(res.data, "AVAILABLE ");

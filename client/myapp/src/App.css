@@ -222,3 +222,21 @@ th {
   border-radius: 10px;
   text-align: center;
 }
+
+.orderStatus-pending {
+  height: 100%;
+  width: 100%;
+  background-color: red;
+}
+
+.orderStatus-onWay {
+  height: 100%;
+  width: 100%;
+  background-color: yellow;
+}
+
+.orderStatus-delivered {
+  height: 100%;
+  width: 100%;
+  background-color: green;
+}

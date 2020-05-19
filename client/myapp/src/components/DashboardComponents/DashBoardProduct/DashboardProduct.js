@@ -245,6 +245,7 @@ class DashboardProduct extends Component {
               name="PRODUCT COUNT"
               value={this.state.Data.length}
               imgName="fas fa-shopping-basket"
+              lineColor="CARD-BLUE"
             />
           </div>
           <div>
@@ -252,6 +253,7 @@ class DashboardProduct extends Component {
               name="STOCK COUNT"
               value={this.state.StockAvailabel.length}
               imgName="fas fa-cubes"
+              lineColor="CARD-RED"
             />
           </div>
           <div>
@@ -259,6 +261,7 @@ class DashboardProduct extends Component {
               name="OUT OF STOCK"
               value={this.state.OutofStock.length}
               imgName="far fa-circle"
+              lineColor="CARD-GREEN"
             />
           </div>
         </div>
