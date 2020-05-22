@@ -17,7 +17,9 @@ class ProductPreview extends Component {
     console.log("i am ProductPreview");
 
     axios
-      .get(`/api/addproduct/${this.props.Product_id}`)
+      .get(
+        `https://still-peak-54145.herokuapp.com/api/addproduct/${this.props.Product_id}`,
+      )
       .then((res) => {
         console.log("i am data from ProductID");
         console.log(res.data);

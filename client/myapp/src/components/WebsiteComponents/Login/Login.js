@@ -30,7 +30,7 @@ class Login extends Component {
     event.preventDefault();
 
     axios
-      .post("/api/user/login", {
+      .post("https://still-peak-54145.herokuapp.com/api/user/login", {
         UserEmail: this.state.email,
         password: this.state.password,
       })

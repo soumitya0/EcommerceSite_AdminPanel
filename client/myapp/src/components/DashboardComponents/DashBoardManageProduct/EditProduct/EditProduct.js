@@ -30,7 +30,7 @@ class EditProduct extends Component {
 
   componentDidMount() {
     axios
-      .get("/api/category")
+      .get("https://still-peak-54145.herokuapp.com/api/category")
       .then((res) => {
         console.log(res.data, "Add Product");
         this.setState({
@@ -111,7 +111,11 @@ class EditProduct extends Component {
     };
 
     axios
-      .put(`/api/product/editProduct/${this.state._id}`, fd, axiosConfig)
+      .put(
+        `https://still-peak-54145.herokuapp.com/api/product/editProduct/${this.state._id}`,
+        fd,
+        axiosConfig,
+      )
       .then((res) => {
         console.log("API");
         console.log(res.data);

@@ -9,7 +9,6 @@ const multer = require("multer");
 const bodyParser = require("body-parser");
 const path = require("path");
 const fs = require("fs");
-
 const dir = "../client/myapp/public/uploads";
 
 var uploads = multer({

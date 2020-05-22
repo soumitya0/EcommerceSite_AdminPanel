@@ -44,7 +44,11 @@ class AddCategory extends Component {
     };
 
     axios
-      .post("/api/category", bodyData, axiosConfig)
+      .post(
+        "https://still-peak-54145.herokuapp.com/api/category",
+        bodyData,
+        axiosConfig,
+      )
       .then((res) => {
         console.log(res.data);
       })

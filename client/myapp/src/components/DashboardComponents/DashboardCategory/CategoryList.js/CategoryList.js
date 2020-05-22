@@ -53,7 +53,10 @@ class CategoryList extends Component {
       },
     };
     axios
-      .delete(`/api/category/${_id}`, axiosConfig)
+      .delete(
+        `https://still-peak-54145.herokuapp.com/api/category/${_id}`,
+        axiosConfig,
+      )
       .then((res) => {
         console.log(res.data);
         parent_Node.remove();
@@ -70,7 +73,7 @@ class CategoryList extends Component {
 
   componentDidMount() {
     axios
-      .get("/api/category")
+      .get("https://still-peak-54145.herokuapp.com/api/category")
       .then((res) => {
         console.log(res.data, "i am from CatagoryList.js");
         this.setState({

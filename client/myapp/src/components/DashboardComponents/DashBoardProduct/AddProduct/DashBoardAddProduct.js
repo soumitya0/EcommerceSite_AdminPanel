@@ -28,7 +28,7 @@ class DashBoardAddProduct extends Component {
 
   componentDidMount() {
     axios
-      .get("/api/category")
+      .get("https://still-peak-54145.herokuapp.com/api/category")
       .then((res) => {
         console.log(res.data, "Add Product");
         this.setState({
@@ -105,7 +105,12 @@ class DashBoardAddProduct extends Component {
     };
 
     axios
-      .post("/api/addproduct", fd, axiosConfig, bodyData)
+      .post(
+        "https://still-peak-54145.herokuapp.com/api/addproduct",
+        fd,
+        axiosConfig,
+        bodyData,
+      )
       .then((res) => {
         console.log("UI");
         console.log(res.data);

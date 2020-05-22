@@ -14,6 +14,7 @@ class Account extends Component {
     super(props);
     this.state = {
       data: [],
+      LogOut: false,
     };
   }
 
@@ -25,17 +26,27 @@ class Account extends Component {
       },
     };
 
-    axios.get("/api/user", axiosConfig).then((res) => {
-      console.log(res.data);
-      this.setState({
-        data: res.data,
-      });
+    axios
+      .get("https://still-peak-54145.herokuapp.com/api/user", axiosConfig)
+      .then((res) => {
+        console.log(res.data);
+        this.setState({
+          data: res.data,
+        });
 
-      console.log(this.state.data, " STATE USER DATA");
-    });
+        console.log(this.state.data, " STATE USER DATA");
+      });
   }
 
+  LogOut = () => {
+    localStorage.removeItem("UserToken");
+    this.setState({
+      LogOut: true,
+    });
+  };
+
   render() {
+    console.log(this.state);
     console.log(localStorage.getItem("Login"));
 
     return (

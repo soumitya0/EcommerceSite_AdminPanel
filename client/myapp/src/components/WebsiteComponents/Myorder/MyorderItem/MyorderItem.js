@@ -10,11 +10,15 @@ class MyorderItem extends Component {
   }
 
   componentDidMount() {
-    axios.get(`/api/addproduct/${this.props.item.ProductId}`).then((res) => {
-      this.setState({
-        imageUrl: res.data.productImage,
+    axios
+      .get(
+        `https://still-peak-54145.herokuapp.com/api/addproduct/${this.props.item.ProductId}`,
+      )
+      .then((res) => {
+        this.setState({
+          imageUrl: res.data.productImage,
+        });
       });
-    });
   }
 
   render() {

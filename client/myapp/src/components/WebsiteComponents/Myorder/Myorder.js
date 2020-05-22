@@ -20,12 +20,17 @@ class Myorder extends Component {
       },
     };
 
-    axios.get("/api/user/myorder/", axiosConfig).then((res) => {
-      console.log(res.data, "ORDER DATA");
-      this.setState({
-        productData: res.data,
+    axios
+      .get(
+        "https://still-peak-54145.herokuapp.com/api/user/myorder/",
+        axiosConfig,
+      )
+      .then((res) => {
+        console.log(res.data, "ORDER DATA");
+        this.setState({
+          productData: res.data,
+        });
       });
-    });
   }
 
   render() {

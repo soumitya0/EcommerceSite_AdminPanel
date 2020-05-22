@@ -64,7 +64,10 @@ class DashBoardManageProduct extends Component {
     };
 
     axios
-      .delete(`/api/addproduct/${_id}`, axiosConfig)
+      .delete(
+        `https://still-peak-54145.herokuapp.com/api/addproduct/${_id}`,
+        axiosConfig,
+      )
       .then((res) => {
         console.log(res.data);
         parent_Node.remove();
@@ -101,7 +104,11 @@ class DashBoardManageProduct extends Component {
       };
 
       axios
-        .put(`/api/stock/${_id}`, bodyData, axiosConfig)
+        .put(
+          `https://still-peak-54145.herokuapp.com/api/stock/${_id}`,
+          bodyData,
+          axiosConfig,
+        )
         .then((res) => {
           console.log(res.data);
           //window.location.reload();
@@ -119,7 +126,11 @@ class DashBoardManageProduct extends Component {
       };
 
       axios
-        .put(`/api/stock/${_id}`, bodyData, axiosConfig)
+        .put(
+          `https://still-peak-54145.herokuapp.com/api/stock/${_id}`,
+          bodyData,
+          axiosConfig,
+        )
         .then((res) => {
           console.log(res.data);
         })
@@ -143,7 +154,7 @@ class DashBoardManageProduct extends Component {
     };
 
     axios
-      .get("/api/addproduct/", axiosCofig)
+      .get("https://still-peak-54145.herokuapp.com/api/addproduct/", axiosCofig)
       .then((res) => {
         console.log(res.data, "product data");
 

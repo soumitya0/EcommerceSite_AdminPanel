@@ -39,7 +39,7 @@ class ListOfOrders extends Component {
     };
 
     axios
-      .get("/api/order", axiosConfig)
+      .get("https://still-peak-54145.herokuapp.com/api/order", axiosConfig)
       .then((res) => {
         console.log(res.data, "i  am ordder data");
         this.setState({
@@ -134,7 +134,11 @@ class ListOfOrders extends Component {
     }
 
     axios
-      .put(`/api/order/${_id}`, bodyData, axiosConfig)
+      .put(
+        `https://still-peak-54145.herokuapp.com/api/order/${_id}`,
+        bodyData,
+        axiosConfig,
+      )
 
       .then((res) => {
         console.log(res.data);

@@ -37,7 +37,7 @@ class Register extends Component {
 
     if (this.state.password == this.state.confirmPassword) {
       axios
-        .post("/api/user", {
+        .post("https://still-peak-54145.herokuapp.com/api/user", {
           UserName: this.state.name,
           UserEmail: this.state.email,
           password: this.state.password,

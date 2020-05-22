@@ -25,7 +25,10 @@ class DashBoardOrder extends Component {
 
     // PENDING ORDERS
     axios
-      .get("/api/order/pending/data", axiosConfig)
+      .get(
+        "https://still-peak-54145.herokuapp.com/api/order/pending/data",
+        axiosConfig,
+      )
       .then((res) => {
         console.log(res.data, "PENDING DATA ");
         this.setState({
@@ -43,7 +46,10 @@ class DashBoardOrder extends Component {
 
     // ON-WAY ORDERS/
     axios
-      .get("/api/order/onway/data", axiosConfig)
+      .get(
+        "https://still-peak-54145.herokuapp.com/api/order/onway/data",
+        axiosConfig,
+      )
       .then((res) => {
         console.log(res.data, "onway DATA ");
         this.setState({
@@ -61,7 +67,10 @@ class DashBoardOrder extends Component {
 
     // DELIVERED ORDERS
     axios
-      .get("/api/order/delivered/data", axiosConfig)
+      .get(
+        "https://still-peak-54145.herokuapp.com/api/order/delivered/data",
+        axiosConfig,
+      )
       .then((res) => {
         console.log(res.data, "delivered DATA ");
         this.setState({

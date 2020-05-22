@@ -28,7 +28,7 @@ const BuyProduct = (props) => {
     };
 
     axios
-      .get("/api/user", axiosConfig)
+      .get("https://still-peak-54145.herokuapp.com/api/user", axiosConfig)
       .then((res) => setData(res.data))
       .catch((err) => {
         console.log(err);
@@ -87,7 +87,7 @@ const BuyProduct = (props) => {
       };
 
       axios
-        .post("/api/bid/pay/", data)
+        .post("https://still-peak-54145.herokuapp.com/api/bid/pay/", data)
         .then((res) => {
           console.log("resp", res.data);
 

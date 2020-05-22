@@ -22,7 +22,9 @@ class DashboardHome extends Component {
   componentDidMount() {
     // OutofStock
     axios
-      .get("api/product/stock/OutofStock")
+      .get(
+        "https://still-peak-54145.herokuapp.com/api/product/stock/OutofStock",
+      )
       .then((res) => {
         console.log(res.data, "OUT-OF-STOCK");
         this.setState({
@@ -39,7 +41,7 @@ class DashboardHome extends Component {
 
     // AllProduct
     axios
-      .get("/api/addproduct/data")
+      .get("https://still-peak-54145.herokuapp.com/api/addproduct/data")
       .then((res) => {
         console.log(res.data, "ALL Product");
         this.setState({
@@ -56,7 +58,7 @@ class DashboardHome extends Component {
 
     // Stock Availabel
     const availabel = axios
-      .get("/api/product/stock/available")
+      .get("https://still-peak-54145.herokuapp.com/api/product/stock/available")
       .then((res) => {
         console.log(res.data, "AVAILABLE ");
 
@@ -81,7 +83,10 @@ class DashboardHome extends Component {
 
     // PENDING ORDERS
     axios
-      .get("/api/order/pending/data", axiosConfig)
+      .get(
+        "https://still-peak-54145.herokuapp.com/api/order/pending/data",
+        axiosConfig,
+      )
       .then((res) => {
         console.log(res.data, "PENDING DATA ");
         this.setState({
@@ -99,7 +104,10 @@ class DashboardHome extends Component {
 
     // ON-WAY ORDERS/
     axios
-      .get("/api/order/onway/data", axiosConfig)
+      .get(
+        "https://still-peak-54145.herokuapp.com/api/order/onway/data",
+        axiosConfig,
+      )
       .then((res) => {
         console.log(res.data, "onway DATA ");
         this.setState({
@@ -117,7 +125,10 @@ class DashboardHome extends Component {
 
     // DELIVERED ORDERS
     axios
-      .get("/api/order/delivered/data", axiosConfig)
+      .get(
+        "https://still-peak-54145.herokuapp.com/api/order/delivered/data",
+        axiosConfig,
+      )
       .then((res) => {
         console.log(res.data, "delivered DATA ");
         this.setState({

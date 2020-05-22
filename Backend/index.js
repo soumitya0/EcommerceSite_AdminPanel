@@ -2,6 +2,9 @@ const express = require("./node_modules/express");
 const app = express();
 const PORT = process.env.PORT || 8000;
 
+//cors
+var cors = require("cors");
+
 //db
 const connectDb = require("./config/db");
 connectDb();
@@ -17,6 +20,9 @@ app.get("/api/customer", (req, res) => {
 app.get("/testing", (req, res) => {
   res.send("i am testing from Bacckend");
 });
+
+// CORS
+app.use(cors());
 
 // Dinfine Route
 // @des   admin

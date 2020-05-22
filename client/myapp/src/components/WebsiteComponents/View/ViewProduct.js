@@ -20,7 +20,7 @@ class ViewProduct extends Component {
     console.log(localStorage.getItem("UserToken"));
 
     axios
-      .get("api/addproduct/data") //getting all product
+      .get("https://still-peak-54145.herokuapp.com/api/addproduct/data") //getting all product
       .then((res) => {
         console.log(res.data);
         this.setState({

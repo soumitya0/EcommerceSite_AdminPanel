@@ -26,7 +26,9 @@ class SearchBar extends Component {
   onSubmit = (e) => {
     e.preventDefault();
 
-    axios(`/api/search/${this.state.find}`)
+    axios(
+      `https://still-peak-54145.herokuapp.com/api/search/${this.state.find}`,
+    )
       .then((res) => {
         console.log(res.data);
         this.setState({

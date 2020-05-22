@@ -12,6 +12,7 @@ import DashBoardOrder from "../DashBoardOrders/DashBoardOrder";
 import DashBoardCategory from "../DashboardCategory/DashBoardCategory";
 import DashBoardAdmin from "../DashBoardAdmin/DashBoardAdmin";
 import DashboardProduct from "../DashBoardProduct/DashboardProduct";
+import { Redirect } from "react-router-dom";
 
 //AXIOS
 import axios from "axios";
@@ -30,7 +31,9 @@ class Dashboard extends Component {
 
   componentDidMount() {
     axios
-      .get("api/product/stock/OutofStock")
+      .get(
+        "https://still-peak-54145.herokuapp.com/api/product/stock/OutofStock",
+      )
       .then((res) => {
         console.log(res.data, "OUT-OF-STOCK");
         this.setState({
@@ -46,7 +49,7 @@ class Dashboard extends Component {
       });
 
     axios
-      .get("/api/product/stock/available")
+      .get("https://still-peak-54145.herokuapp.com/api/product/stock/available")
       .then((res) => {
         console.log(res.data, "AVAILABLE ");
 
@@ -65,55 +68,68 @@ class Dashboard extends Component {
   }
 
   render() {
-    return (
-      <Fragment>
-        <div className="gridDashboard">
-          <div className="DashBoardGrid1">
-            <LeftBar />
-          </div>
-          <div className="DashBoardGrid2">
-            <TopBar />
-          </div>
+    if (localStorage.getItem("AdminLogin") == null) {
+      return (
+        <Redirect
+          to={{
+            pathname: "/DashboardLogin",
+            state: {
+              working: "i am working",
+            },
+          }}
+        />
+      );
+    } else {
+      return (
+        <Fragment>
+          <div className="gridDashboard">
+            <div className="DashBoardGrid1">
+              <LeftBar />
+            </div>
+            <div className="DashBoardGrid2">
+              <TopBar />
+            </div>
 
-          <div className="DashBoardGrid3">
-            <div className="container">
-              <h2>In side the display container</h2>
+            <div className="DashBoardGrid3">
+              <div className="container">
+                <h2>In side the display container</h2>
 
-              {/* this are the Route that will be display in display container  */}
-              <Switch>
-                <Route path="/dashboard" exact>
-                  <DashboardHome />
-                </Route>
+                {/* this are the Route that will be display in display container  */}
+                <Switch>
+                  <Route path="/dashboard" exact>
+                    <DashboardHome />
+                  </Route>
 
-                <Route path="/dashboard/addProducts" exact>
-                  <DashboardProduct />
-                </Route>
+                  <Route path="/dashboard/addProducts" exact>
+                    <DashboardProduct />
+                  </Route>
 
-                <Route path="/dashboard/manageProduct" exact>
-                  <DashBoardManageProduct />
-                </Route>
+                  <Route path="/dashboard/manageProduct" exact>
+                    <DashBoardManageProduct />
+                  </Route>
 
-                <Route path="/dashboard/orders" exact>
-                  <DashBoardOrder />
-                </Route>
+                  <Route path="/dashboard/orders" exact>
+                    <DashBoardOrder />
+                  </Route>
 
-                <Route path="/dashboard/category" exact>
-                  <DashBoardCategory />
-                </Route>
+                  <Route path="/dashboard/category" exact>
+                    <DashBoardCategory />
+                  </Route>
 
-                <Route path="/dashboard/ADMIN" exact>
-                  <DashBoardAdmin />
-                </Route>
+                  <Route path="/dashboard/ADMIN" exact>
+                    <DashBoardAdmin />
+                  </Route>
 
-                <Route path="/dashboard/editProduct" exact>
-                  <EditProduct />
-                </Route>
-              </Switch>
+                  <Route path="/dashboard/editProduct" exact>
+                    <EditProduct />
+                  </Route>
+                </Switch>
+              </div>
             </div>
           </div>
-        </div>
-      </Fragment>
-    );
+        </Fragment>
+      );
+    }
   }
 }
 

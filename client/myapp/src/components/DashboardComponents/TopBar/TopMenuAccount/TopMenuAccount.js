@@ -10,10 +10,8 @@ class TopMenuAccount extends Component {
             <span className="TopMenuAccountEmail">
               soumityachauhan1234@gmail.com
             </span>
-            <img
-              className="img-profile rounded-circle"
-              src="https://source.unsplash.com/QAB-WJcbgJk/60x60"
-            />
+
+            <i class="fas fa-user-tie img-profile rounded-circle"></i>
           </div>
         </li>
       </Fragment>

@@ -61,7 +61,11 @@ class Thankyou extends Component {
       };
 
       axios
-        .post("/api/order", bodyData, axiosConfig)
+        .post(
+          "https://still-peak-54145.herokuapp.com/api/order",
+          bodyData,
+          axiosConfig,
+        )
         .then((res) => {
           console.log(res.data);
           this.setState({

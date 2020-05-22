@@ -63,7 +63,11 @@ class DashboardProduct extends Component {
       };
 
       axios
-        .put(`/api/stock/${_id}`, bodyData, axiosConfig)
+        .put(
+          `https://still-peak-54145.herokuapp.com/api/stock/${_id}`,
+          bodyData,
+          axiosConfig,
+        )
         .then((res) => {
           console.log(res.data);
           //window.location.reload();
@@ -81,7 +85,11 @@ class DashboardProduct extends Component {
       };
 
       axios
-        .put(`/api/stock/${_id}`, bodyData, axiosConfig)
+        .put(
+          `https://still-peak-54145.herokuapp.com/api/stock/${_id}`,
+          bodyData,
+          axiosConfig,
+        )
         .then((res) => {
           console.log(res.data);
           //window.location.reload();
@@ -111,7 +119,10 @@ class DashboardProduct extends Component {
     };
 
     axios
-      .delete(`/api/addproduct/${_id}`, axiosConfig)
+      .delete(
+        `https://still-peak-54145.herokuapp.com/api/addproduct/${_id}`,
+        axiosConfig,
+      )
       .then((res) => {
         console.log(res.data);
         parent_Node.remove();
@@ -180,7 +191,7 @@ class DashboardProduct extends Component {
     };
 
     axios
-      .get("/api/addproduct/", axiosCofig)
+      .get("https://still-peak-54145.herokuapp.com/api/addproduct/", axiosCofig)
       .then((res) => {
         console.log(res.data, "product data");
 
@@ -200,7 +211,9 @@ class DashboardProduct extends Component {
       });
 
     axios
-      .get("/api/product/stock/OutofStock")
+      .get(
+        "https://still-peak-54145.herokuapp.com/api/product/stock/OutofStock",
+      )
       .then((res) => {
         console.log(res.data, "OUT-OF-STOCK");
         this.setState({
@@ -216,7 +229,7 @@ class DashboardProduct extends Component {
       });
 
     axios
-      .get("/api/product/stock/available")
+      .get("https://still-peak-54145.herokuapp.com/api/product/stock/available")
       .then((res) => {
         console.log(res.data, "AVAILABLE ");
 
