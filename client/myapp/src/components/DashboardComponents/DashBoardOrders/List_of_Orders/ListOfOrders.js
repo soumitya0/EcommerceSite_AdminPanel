@@ -1,6 +1,7 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 
 import axios from "axios";
+import Alert from "../../../../common/components/Alert/Alert";
 
 class ListOfOrders extends Component {
   constructor(props) {
@@ -24,12 +25,13 @@ class ListOfOrders extends Component {
         "date",
         // "Remove",
       ],
-
+      AlertMsg: "",
       changeOrderStatus: false,
     };
   }
 
-  componentDidMount() {
+  componentDidUpdate() {
+    console.log("ORDER LIST COMPONENTDIDMOUNT");
     console.log(localStorage.getItem("AdminLogin"));
 
     let axiosConfig = {
@@ -74,6 +76,9 @@ class ListOfOrders extends Component {
         orderStatus = this.state.Data.orderStatus,
         date = this.state.Data.data,
       } = data;
+
+      console.log({ orderStatus }, "ORDER STATUS LIST OF ORDER");
+
       return (
         <tr style={{ fontSize: "15px" }}>
           <td>{index}</td>
@@ -144,31 +149,72 @@ class ListOfOrders extends Component {
         console.log(res.data);
         this.setState({
           changeOrderStatus: true,
+          AlertMsg: res.data.message,
         });
+
+        setTimeout(() => {
+          this.setState({
+            AlertMsg: "",
+          });
+        }, 3000);
+
         console.log(this.state.changeOrderStatus);
+        this.props.sendChangeOrderStatus(this.state.changeOrderStatus);
       })
 
       .catch((error) => {
         console.log(error.response.data);
+        this.setState({
+          AlertMsg: error.response.message,
+        });
+
+        setTimeout(() => {
+          this.setState({
+            AlertMsg: "",
+          });
+        }, 3000);
       })
       .catch((error) => {
         console.log(error.response.data);
+        this.setState({
+          AlertMsg: error.response.message,
+        });
+
+        setTimeout(() => {
+          this.setState({
+            AlertMsg: "",
+          });
+        }, 3000);
+      })
+      .catch((error) => {
+        console.log(error);
       });
-
-    window.location.reload();
   };
 
   render() {
+    console.log(this.state.AlertMsg, "LIST ORDERS");
     return (
-      <div className="tabelContainerProduct marginTop-50">
-        <div className="tableName text-700">
-          <p>All Orders Panding+Delivered</p>
+      <Fragment>
+        {this.state.AlertMsg != "" ? (
+          <Alert
+            msg={` ${this.state.AlertMsg}`}
+            msgType="success"
+            marginDetail="70px 400px"
+          />
+        ) : null}
+
+        <div className="tabelContainerProduct marginTop-50">
+          <div className="tableName text-700">
+            <p>All Orders Panding+Delivered</p>
+          </div>
+
+          <table className="TableState">
+            <tr>{this.TableHeader()}</tr>
+
+            <tbody>{this.TableData()}</tbody>
+          </table>
         </div>
-        <table className="TableState">
-          <tr>{this.TableHeader()}</tr>
-          <tbody>{this.TableData()}</tbody>
-        </table>
-      </div>
+      </Fragment>
     );
   }
 }

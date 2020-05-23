@@ -5,6 +5,7 @@ import "./DashBoardLoginStyle.css";
 import axios from "axios";
 
 import { Redirect } from "react-router-dom";
+import Alert from "../../../common/components/Alert/Alert";
 
 class DashBoardLogin extends Component {
   constructor(props) {
@@ -15,6 +16,8 @@ class DashBoardLogin extends Component {
 
       isLogin: false,
       token: "",
+
+      AlertMsg: "",
     };
   }
 
@@ -49,6 +52,22 @@ class DashBoardLogin extends Component {
           isLogin: true,
           token: token,
         });
+      })
+      .catch((err) => {
+        console.log(err.response.data);
+
+        this.setState({
+          AlertMsg: err.response.data.msg,
+          isLogin: false,
+          email: "",
+          password: "",
+        });
+
+        setTimeout(() => {
+          this.setState({
+            AlertMsg: "",
+          });
+        }, 3000);
       });
   };
 
@@ -57,6 +76,14 @@ class DashBoardLogin extends Component {
     if (localStorage.getItem("AdminLogin") == null) {
       return (
         <div>
+          {this.state.AlertMsg != "" ? (
+            <Alert
+              msg={this.state.AlertMsg}
+              msgType="danger"
+              marginDetail="-50px 350px"
+            />
+          ) : null}
+
           <Fragment>
             <div className="DashBoardLoginGrid">
               <div
@@ -73,6 +100,7 @@ class DashBoardLogin extends Component {
                       type="email"
                       name="email"
                       placeholder="Email id"
+                      value={this.state.email}
                       onChange={this.onChangeHandler}
                       required
                     />
@@ -87,6 +115,7 @@ class DashBoardLogin extends Component {
                     name="password"
                     placeholder="Password "
                     onChange={this.onChangeHandler}
+                    value={this.state.password}
                     required
                   />
                 </div>

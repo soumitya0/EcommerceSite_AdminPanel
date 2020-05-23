@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+
 const { check, validationResult } = require("express-validator");
 
 const MiddleWare_Auth = require("../../../middleWare/auth");
@@ -10,6 +11,11 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const fs = require("fs");
 const dir = "../client/myapp/public/uploads";
+
+router.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
 
 var uploads = multer({
   storage: multer.diskStorage({

@@ -13,10 +13,11 @@ class DashBoardOrder extends Component {
       pendingOrder: [],
       onWayOrder: [],
       deliverOrder: [],
+      ChangeOrderStatus: false,
     };
   }
 
-  componentDidMount() {
+  componentDidUpdate() {
     let axiosConfig = {
       headers: {
         "X-Auth-Token": localStorage.getItem("AdminLogin"),
@@ -84,10 +85,21 @@ class DashBoardOrder extends Component {
       })
       .catch((error) => {
         console.log(error.response.data);
+      })
+      .catch((error) => {
+        console.log(error);
       });
   }
 
+  getChangeOrderStatus = (val) => {
+    console.log(val, "getChangeOrderStatus");
+    this.setState({
+      ChangeOrderStatus: val,
+    });
+  };
+
   render() {
+    console.log("i am render ");
     return (
       <Fragment>
         <h1 className="text-gray text-700">Products</h1>
@@ -119,8 +131,11 @@ class DashBoardOrder extends Component {
             />
           </div>
         </div>
+        {this.state.ChangeOrderStatus == true
+          ? console.log("CHANGE_ORDER_STATUS yes")
+          : console.log("CHANGE_ORDER_STATUS NO")}
 
-        <ListOfOrders />
+        <ListOfOrders sendChangeOrderStatus={this.getChangeOrderStatus} />
       </Fragment>
     );
   }

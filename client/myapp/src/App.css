@@ -240,3 +240,22 @@ th {
   width: 100%;
   background-color: green;
 }
+
+.error-danger {
+  color: #d8000c;
+  background-color: #ffd2d2;
+}
+
+.error-success {
+  color: #4f8a10;
+  background-color: #dff2bf;
+}
+
+.error-danger,
+.error-success {
+  position: absolute;
+  text-align: center;
+  width: 50%;
+  vertical-align: middle;
+  padding: 12px;
+}

@@ -108,13 +108,13 @@ router.post(
 
       //checking email
       if (!Admin) {
-        return res.status(400).json({ msg: "Invalid Credentails email " });
+        return res.status(400).json({ msg: "Invalid Credentails" });
       }
 
       //checking password
       const isPasswordMatch = await bcrypt.compare(password, Admin.password);
       if (!isPasswordMatch) {
-        return res.status(400).json({ msg: "Invalid Credentails password " });
+        return res.status(400).json({ msg: "Invalid Credentails" });
       }
 
       //JWT Token

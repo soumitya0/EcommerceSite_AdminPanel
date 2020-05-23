@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import "./AddCategoryStyle.css";
 
 import axios from "axios";
+import Alert from "../../../../common/components/Alert/Alert";
 
 class AddCategory extends Component {
   constructor(props) {
@@ -9,7 +10,8 @@ class AddCategory extends Component {
     this.state = {
       Categoryname: "",
 
-      reload: false,
+      AlertMsg: "",
+      AlertMsgType: "",
     };
   }
 
@@ -51,19 +53,46 @@ class AddCategory extends Component {
       )
       .then((res) => {
         console.log(res.data);
+        this.setState({
+          AlertMsg: res.data,
+          AlertMsgType: "success",
+          Categoryname: "",
+        });
+        setTimeout(() => {
+          this.setState({
+            AlertMsg: "",
+          });
+        }, 3000);
       })
       .catch((error) => {
         console.log(error.response.data);
+        this.setState({
+          AlertMsg: error.response.data,
+          AlertMsgType: "danger",
+          Categoryname: "",
+        });
+        setTimeout(() => {
+          this.setState({
+            AlertMsg: "",
+          });
+        }, 3000);
       });
-
-    window.location.reload();
-
-    window.location.reload();
   };
 
   render() {
+    console.log(this.state);
     return (
       <Fragment>
+        <div>
+          {this.state.AlertMsg != "" ? (
+            <Alert
+              msg={this.state.AlertMsg}
+              msgType={this.state.AlertMsgType}
+              marginDetail="50px 0px;"
+            />
+          ) : null}
+        </div>
+
         <div className="FormContainer marginTop-50">
           <div className="tableName text-700">
             <p>Add Category</p>
@@ -74,6 +103,7 @@ class AddCategory extends Component {
                 <input
                   className="formInput"
                   type="text"
+                  value={this.state.Categoryname}
                   name="Categoryname"
                   placeholder="Product Name"
                   onChange={this.onChangeHandler}

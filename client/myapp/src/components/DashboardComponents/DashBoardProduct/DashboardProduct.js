@@ -5,6 +5,7 @@ import DashBoardAddProduct from "./AddProduct/DashBoardAddProduct";
 import axios from "axios";
 
 import "./DashboardProductStyle.css";
+import Alert from "../../../common/components/Alert/Alert";
 
 class DashboardProduct extends Component {
   constructor(props) {
@@ -28,6 +29,8 @@ class DashboardProduct extends Component {
       ],
 
       stockData: "",
+
+      AlertMsg: "",
     };
   }
 
@@ -92,7 +95,6 @@ class DashboardProduct extends Component {
         )
         .then((res) => {
           console.log(res.data);
-          //window.location.reload();
         })
         .catch((error) => {
           console.log(error.response.data);
@@ -125,6 +127,13 @@ class DashboardProduct extends Component {
       )
       .then((res) => {
         console.log(res.data);
+
+        this.setState({
+          AlertMsg: res.data.msg,
+        });
+
+        alert(this.state.AlertMsg);
+
         parent_Node.remove();
       })
       .catch((err) => {
@@ -250,6 +259,13 @@ class DashboardProduct extends Component {
   render() {
     return (
       <Fragment>
+        {/* {this.state.AlertMsg != "" ? (
+          <Alert
+            msg={this.state.AlertMsg}
+            msgType="danger"
+            marginDetail="0px 0px"
+          />
+        ) : null} */}
         <h1 className="text-gray text-700">Products</h1>
         <p className="marginTop-10">Products here</p>
         <div className="GridCardInfo marginTop-20">
