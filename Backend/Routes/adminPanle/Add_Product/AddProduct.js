@@ -11,9 +11,6 @@ const fs = require("fs");
 
 const multer = require("multer");
 const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, path.join(__dirname + "/uploadsImage"));
-  },
   filename: function (req, file, cb) {
     cb(
       null,
@@ -22,7 +19,7 @@ const storage = multer.diskStorage({
   },
 });
 
-const upload = multer({ storage: storage });
+const upload = multer({ dest: "uploadsImage/", storage: storage });
 
 // var uploads = multer({
 //   storage: multer.diskStorage({
@@ -49,7 +46,8 @@ const upload = multer({ storage: storage });
 
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: false }));
-router.use(express.static("uploads"));
+
+router.use(express.static("uploadsImage"));
 
 // @Api         POST /api/addproduct
 // @dec         Add Product

@@ -2,6 +2,7 @@ const express = require("./node_modules/express");
 const app = express();
 const path = require("path");
 
+const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 8080;
 
 var fs = require("fs");
@@ -16,11 +17,15 @@ const corsMiddleware = require("./middleWare/corsMiddleware");
 const connectDb = require("./config/db");
 connectDb();
 
+// app.use("/uploadsImage", express.static("uploadsImage"));
+
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: false }));
+
 //cors MiddleWare
 app.use(corsMiddleware.preventCROS);
 
-app.use(express.static(__dirname)); //******** */
-
+// // app.use(express.static(__dirname)); //******** */
 //Middle Ware
 app.use(express.json({ extended: false }));
 
