@@ -85,6 +85,8 @@ class DashBoardAddProduct extends Component {
 
     console.log(bodyData);
     const fd = new FormData();
+    fd.append("Content-Type", "multipart/form-data");
+
     fd.append("image", this.state.Selectedfile, this.state.Selectedfile.name);
 
     fd.append("productName", this.state.productName);
@@ -94,10 +96,12 @@ class DashBoardAddProduct extends Component {
 
     fd.append("productPrice", this.state.productPrice);
     fd.append("priceWithWeight", this.state.priceWithWeight);
+
     fd.append("productMaxSellingWeight", this.state.productMaxSellingWeight);
     fd.append("stock", this.state.stock);
 
     console.log(fd, "FormData");
+
     let axiosConfig = {
       headers: {
         "X-Auth-Token": localStorage.getItem("AdminLogin"),
@@ -116,10 +120,9 @@ class DashBoardAddProduct extends Component {
         console.log(res.data);
       })
       .catch((error) => {
-        console.log(error.response.data);
-      })
-      .catch((error) => {
-        console.log(error.response.data);
+        console.log(error);
+
+        //console.log(error.response.data);
       });
   };
   render() {
@@ -132,7 +135,7 @@ class DashBoardAddProduct extends Component {
             <form onSubmit={this.onSubmit} encType="multipart/form-data">
               <div className="formGrid marginTop-20">
                 <div className="formGridImagePreView">
-                  Image Preview
+                  Image-Preview
                   <div className="formIcon">
                     {this.state.imgRef == "" ? (
                       <i class="fas fa-camera-retro "></i>

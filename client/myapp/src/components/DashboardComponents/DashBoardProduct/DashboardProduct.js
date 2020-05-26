@@ -5,7 +5,6 @@ import DashBoardAddProduct from "./AddProduct/DashBoardAddProduct";
 import axios from "axios";
 
 import "./DashboardProductStyle.css";
-import Alert from "../../../common/components/Alert/Alert";
 
 class DashboardProduct extends Component {
   constructor(props) {
@@ -29,8 +28,6 @@ class DashboardProduct extends Component {
       ],
 
       stockData: "",
-
-      AlertMsg: "",
     };
   }
 
@@ -76,10 +73,7 @@ class DashboardProduct extends Component {
           //window.location.reload();
         })
         .catch((error) => {
-          console.log(error.response.data);
-        })
-        .catch((error) => {
-          console.log(error.response.data);
+          console.log(error);
         });
     } else if (getStock == "Avaliable") {
       console.log("this is Available change to Out of Stock");
@@ -95,12 +89,10 @@ class DashboardProduct extends Component {
         )
         .then((res) => {
           console.log(res.data);
+          //window.location.reload();
         })
         .catch((error) => {
-          console.log(error.response.data);
-        })
-        .catch((error) => {
-          console.log(error.response.data);
+          console.log(error);
         });
     }
 
@@ -127,20 +119,10 @@ class DashboardProduct extends Component {
       )
       .then((res) => {
         console.log(res.data);
-
-        this.setState({
-          AlertMsg: res.data.msg,
-        });
-
-        alert(this.state.AlertMsg);
-
         parent_Node.remove();
       })
       .catch((err) => {
-        console.log(err.response.data);
-      })
-      .catch((error) => {
-        console.log(error.response.data);
+        console.log(err);
       });
   };
 
@@ -213,10 +195,7 @@ class DashboardProduct extends Component {
         console.log(this.state.Data.length, "LENGTH");
       })
       .catch((error) => {
-        console.log(error.response.data);
-      })
-      .catch((error) => {
-        console.log(error.response.data);
+        console.log(error);
       });
 
     axios
@@ -231,10 +210,7 @@ class DashboardProduct extends Component {
         console.log(this.state.OutofStock, "STATE OUT-OF-STOCK");
       })
       .catch((error) => {
-        console.log(error.response.data);
-      })
-      .catch((error) => {
-        console.log(error.response.data);
+        console.log(error);
       });
 
     axios
@@ -249,23 +225,13 @@ class DashboardProduct extends Component {
         console.log(this.state.StockAvailabel, "STATE - AVAILABLE ");
       })
       .catch((error) => {
-        console.log(error.response.data);
-      })
-      .catch((error) => {
-        console.log(error.response.data);
+        console.log(error);
       });
   }
 
   render() {
     return (
       <Fragment>
-        {/* {this.state.AlertMsg != "" ? (
-          <Alert
-            msg={this.state.AlertMsg}
-            msgType="danger"
-            marginDetail="0px 0px"
-          />
-        ) : null} */}
         <h1 className="text-gray text-700">Products</h1>
         <p className="marginTop-10">Products here</p>
         <div className="GridCardInfo marginTop-20">

@@ -73,10 +73,8 @@ class DashBoardManageProduct extends Component {
         parent_Node.remove();
       })
       .catch((err) => {
+        console.log(err);
         console.log(err.response.data);
-      })
-      .catch((error) => {
-        console.log(error.response.data);
       });
   };
 
@@ -114,9 +112,7 @@ class DashBoardManageProduct extends Component {
           //window.location.reload();
         })
         .catch((error) => {
-          console.log(error.response.data);
-        })
-        .catch((error) => {
+          console.log(error);
           console.log(error.response.data);
         });
     } else if (getStock == "Avaliable") {
@@ -135,9 +131,7 @@ class DashBoardManageProduct extends Component {
           console.log(res.data);
         })
         .catch((error) => {
-          console.log(error.response.data);
-        })
-        .catch((error) => {
+          console.log(error);
           console.log(error.response.data);
         });
     }
@@ -167,9 +161,7 @@ class DashBoardManageProduct extends Component {
         console.log(this.state.Data.length, "LENGTH");
       })
       .catch((error) => {
-        console.log(error.response.data);
-      })
-      .catch((error) => {
+        console.log(error);
         console.log(error.response.data);
       });
   }

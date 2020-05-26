@@ -1,0 +1,43 @@
+.CategoryGrid {
+  height: 120px;
+  width: 150px;
+  display: grid;
+  grid-template-rows: 70% 15% 15%;
+  grid-gap: 5px;
+}
+
+.CategoryView-img {
+  justify-self: center;
+  height: 100%;
+  width: 70%;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1px solid #ddd;
+
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.CategoryViewImage {
+  margin: 10px 25px;
+}
+
+.CategoryImg {
+  width: 50px;
+  height: 50px;
+}
+
+.CategoryView-name {
+  justify-self: center;
+}
+
+.CategoryView-nameText {
+  font-weight: 600;
+}
+
+.CategoryView-ItemCount {
+  justify-self: center;
+}
+
+.CategoryView-ItemCountText {
+  color: #a1a1a1;
+}

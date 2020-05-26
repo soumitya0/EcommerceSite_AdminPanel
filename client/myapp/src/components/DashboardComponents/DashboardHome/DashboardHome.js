@@ -33,10 +33,7 @@ class DashboardHome extends Component {
         console.log(this.state.OutofStock, "STATE OUT-OF-STOCK");
       })
       .catch((error) => {
-        console.log(error.response.data);
-      })
-      .catch((error) => {
-        console.log(error.response.data);
+        console.log(error);
       });
 
     // AllProduct
@@ -50,10 +47,7 @@ class DashboardHome extends Component {
         console.log(this.state.AllProduct, "STATE AllProduct");
       })
       .catch((error) => {
-        console.log(error.response.data);
-      })
-      .catch((error) => {
-        console.log(error.response.data);
+        console.log(error);
       });
 
     // Stock Availabel
@@ -69,10 +63,7 @@ class DashboardHome extends Component {
         console.log(this.state.StockAvailabel, "STATE - AVAILABLE ");
       })
       .catch((error) => {
-        console.log(error.response.data);
-      })
-      .catch((error) => {
-        console.log(error.response.data);
+        console.log(error);
       });
 
     let axiosConfig = {
@@ -96,11 +87,11 @@ class DashboardHome extends Component {
         console.log(this.state.pendingOrder, "STATE DATA ");
       })
       .catch((error) => {
-        console.log(error.response.data);
-      })
-      .catch((error) => {
-        console.log(error.response.data);
+        console.log(error);
       });
+    // .catch((error) => {
+    //   console.log(error.response.data);
+    // });
 
     // ON-WAY ORDERS/
     axios
@@ -117,10 +108,7 @@ class DashboardHome extends Component {
         console.log(this.state.onWayOrder, "STATE DATA ");
       })
       .catch((error) => {
-        console.log(error.response.data);
-      })
-      .catch((error) => {
-        console.log(error.response.data);
+        console.log(error);
       });
 
     // DELIVERED ORDERS
@@ -138,10 +126,7 @@ class DashboardHome extends Component {
         console.log(this.state.deliverOrder, "STATE DATA ");
       })
       .catch((error) => {
-        console.log(error.response.data);
-      })
-      .catch((error) => {
-        console.log(error.response.data);
+        console.log(error);
       });
   }
 

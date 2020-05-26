@@ -42,10 +42,7 @@ class Dashboard extends Component {
         console.log(this.state.OutofStock, "STATE OUT-OF-STOCK");
       })
       .catch((error) => {
-        console.log(error.response.data);
-      })
-      .catch((error) => {
-        console.log(error.response.data);
+        console.log(error);
       });
 
     axios
@@ -60,10 +57,7 @@ class Dashboard extends Component {
         console.log(this.state.StockAvailabel, "STATE - AVAILABLE ");
       })
       .catch((error) => {
-        console.log(error.response.data);
-      })
-      .catch((error) => {
-        console.log(error.response.data);
+        console.log(error);
       });
   }
 

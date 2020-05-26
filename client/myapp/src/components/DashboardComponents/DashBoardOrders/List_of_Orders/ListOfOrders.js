@@ -51,6 +51,7 @@ class ListOfOrders extends Component {
         console.log(this.state, "STATE");
       })
       .catch((error) => {
+        console.log(error);
         console.log(error.response.data);
       });
   }
@@ -163,31 +164,17 @@ class ListOfOrders extends Component {
       })
 
       .catch((error) => {
-        console.log(error.response.data);
-        this.setState({
-          AlertMsg: error.response.message,
-        });
-
-        setTimeout(() => {
-          this.setState({
-            AlertMsg: "",
-          });
-        }, 3000);
-      })
-      .catch((error) => {
-        console.log(error.response.data);
-        this.setState({
-          AlertMsg: error.response.message,
-        });
-
-        setTimeout(() => {
-          this.setState({
-            AlertMsg: "",
-          });
-        }, 3000);
-      })
-      .catch((error) => {
         console.log(error);
+        console.log(error.response.data);
+        this.setState({
+          AlertMsg: error.response.message,
+        });
+
+        setTimeout(() => {
+          this.setState({
+            AlertMsg: "",
+          });
+        }, 3000);
       });
   };
 

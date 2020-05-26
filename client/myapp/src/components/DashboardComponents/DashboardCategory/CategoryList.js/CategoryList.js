@@ -62,10 +62,7 @@ class CategoryList extends Component {
         parent_Node.remove();
       })
       .catch((err) => {
-        console.log(err.response.data);
-      })
-      .catch((error) => {
-        console.log(error.response.data);
+        console.log(err);
       });
 
     window.location.reload();

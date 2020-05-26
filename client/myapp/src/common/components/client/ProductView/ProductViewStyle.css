@@ -1,0 +1,106 @@
+h1 {
+  color: red;
+}
+
+.MainContainer {
+  width: 250px;
+  height: 350px;
+
+  border: 1px solid #ddd;
+  border-radius: 5px;
+
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  cursor: pointer;
+}
+
+.GridContainer {
+  position: absolute;
+  margin: 15px 15px;
+  width: 220px;
+  height: 320px;
+  display: grid;
+  grid-template-rows: 10% 40% 18% 8% 14%;
+  grid-gap: 5px;
+}
+
+.ProductView-statusIcon {
+  justify-self: end;
+}
+
+.imgstatusIcon {
+  font-size: 25px;
+  color: red;
+}
+
+.ProductView-img {
+  justify-self: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.ProductImage {
+  height: 130px;
+  width: 130px;
+}
+
+.ProductView-img:hover {
+  transform: scale(1.1);
+}
+
+.ProductView-Info {
+  display: grid;
+  grid-template-rows: 45% 45%;
+  grid-gap: 5px;
+}
+
+.Productview-productName {
+  justify-self: center;
+  color: #0cc5b7;
+}
+
+.stockImg {
+  color: #51db94;
+}
+
+.Productview-productStockInfo {
+  font-size: 12px;
+  color: #9c9c9c;
+}
+
+.ProductViewInfo-Stock {
+  justify-self: center;
+  margin-top: -10px;
+}
+
+.ProductView-Price {
+  justify-self: center;
+  margin-top: -10px;
+}
+
+.ProductView-btnBuy {
+  justify-self: center;
+}
+
+.buyNowBtn {
+  border-radius: 50px;
+  width: 150px;
+  height: 40px;
+  background: #ff934b;
+
+  background: linear-gradient(135deg, #ff934b 0%, #ff5e62 100%);
+}
+
+.buyNowIcon {
+  color: #fff;
+  font-size: 18px;
+  margin: 11px 20px;
+}
+
+.buynowText {
+  color: #fff;
+  font-weight: bold;
+}
+
+.buyNowBtn:active {
+  background: linear-gradient(135deg, #faa66d 0%, #ff8183 100%);
+  transform: translateY(4px);
+}

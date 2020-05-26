@@ -11,6 +11,9 @@ import ViewProduct from "../View/ViewProduct";
 import BuyProduct from "../BuyProduct/BuyProduct";
 import Thankyou from "../Thankyou/Thankyou";
 import Myorder from "../Myorder/Myorder";
+import ProductView from "../../../common/components/client/ProductView/ProductView";
+import CategoryList from "../../DashboardComponents/DashboardCategory/CategoryList.js/CategoryList";
+import CategoryView from "../../../common/components/client/CategoryView/CategoryView";
 const Home = () => {
   const [data, setData] = useState(0);
 
@@ -53,6 +56,10 @@ const Home = () => {
           <Myorder />
         </Route>
       </BrowserRouter>
+
+      <ProductView />
+
+      <CategoryView />
     </Fragment>
   );
 };

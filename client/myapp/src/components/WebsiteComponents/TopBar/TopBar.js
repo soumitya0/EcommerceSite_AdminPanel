@@ -55,9 +55,7 @@ class TopBar extends Component {
         console.log(this.state.data, "state");
       })
       .catch((error) => {
-        console.log(error.response.data);
-      })
-      .catch((error) => {
+        console.log(error);
         console.log(error.response.data);
       });
   };

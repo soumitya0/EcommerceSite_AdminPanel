@@ -29,7 +29,7 @@ class ViewProduct extends Component {
         console.log(this.state.allProduct, "ALL_PRODUCT");
       })
       .catch((err) => {
-        console.log(err.response.data);
+        console.log(err);
       });
 
     console.log(this.state.search);

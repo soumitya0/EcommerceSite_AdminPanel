@@ -1,47 +1,51 @@
 const express = require("express");
 const router = express.Router();
-
 const { check, validationResult } = require("express-validator");
 
 const MiddleWare_Auth = require("../../../middleWare/auth");
 const SchemaProduct = require("../../../Models/Admin_Panel/ProductSchema/SchemaProduct");
 
-const multer = require("multer");
 const bodyParser = require("body-parser");
 const path = require("path");
 const fs = require("fs");
-const dir = "../client/myapp/public/uploads";
 
-router.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  next();
-});
-
-var uploads = multer({
-  storage: multer.diskStorage({
-    destination: function (req, res, cb) {
-      if (!fs.existsSync(dir)) {
-        fs.mkdirSync(dir);
-      }
-      cb(null, "../client/myapp/public/uploads");
-    },
-
-    filename: function (req, file, callback) {
-      callback(
-        null,
-        file.fieldname + "-" + Date.now() + path.extname(file.originalname), // use to have image-824722.jpg
-      );
-    },
-  }),
-
-  fileFilter: function (req, file, cb) {
-    const ext = path.extname(file.originalname);
-    if (ext !== ".png" && ext !== ".jpg" && ext !== ".gif" && ext !== ".jpeg") {
-      return callback(/*res.end('Only images are allowed')*/ null, false);
-    }
-    cb(null, true);
+const multer = require("multer");
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, path.join(__dirname + "/uploadsImage"));
+  },
+  filename: function (req, file, cb) {
+    cb(
+      null,
+      file.fieldname + "-" + Date.now() + path.extname(file.originalname), // use to have image-824722.jpg
+    );
   },
 });
+
+const upload = multer({ storage: storage });
+
+// var uploads = multer({
+//   storage: multer.diskStorage({
+//     destination: function (req, res, cb) {
+//       cb(null, path.join(__dirname, "/uploads/"));
+//     },
+
+//     filename: function (req, file, callback) {
+//       callback(
+//         null,
+//         file.fieldname + "-" + Date.now() + path.extname(file.originalname), // use to have image-824722.jpg
+//       ); /******* *****/
+//     },
+//   }),
+
+//   fileFilter: function (req, file, cb) {
+//     const ext = path.extname(file.originalname);
+//     if (ext !== ".png" && ext !== ".jpg" && ext !== ".gif" && ext !== ".jpeg") {
+//       return callback(/*res.end('Only images are allowed')*/ null, false);
+//     }
+//     cb(null, true);
+//   },
+// });
 
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: false }));
@@ -53,7 +57,7 @@ router.use(express.static("uploads"));
 router.post(
   "/",
   [
-    uploads.any(),
+    upload.any(),
     MiddleWare_Auth,
     [
       check("productName", "product Name required").not().isEmpty(),

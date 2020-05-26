@@ -39,9 +39,7 @@ class DashBoardOrder extends Component {
         console.log(this.state.pendingOrder, "STATE DATA ");
       })
       .catch((error) => {
-        console.log(error.response.data);
-      })
-      .catch((error) => {
+        console.log(error);
         console.log(error.response.data);
       });
 
@@ -60,9 +58,7 @@ class DashBoardOrder extends Component {
         console.log(this.state.onWayOrder, "STATE DATA ");
       })
       .catch((error) => {
-        console.log(error.response.data);
-      })
-      .catch((error) => {
+        console.log(error);
         console.log(error.response.data);
       });
 
@@ -79,12 +75,6 @@ class DashBoardOrder extends Component {
         });
 
         console.log(this.state.deliverOrder, "STATE DATA ");
-      })
-      .catch((error) => {
-        console.log(error.response.data);
-      })
-      .catch((error) => {
-        console.log(error.response.data);
       })
       .catch((error) => {
         console.log(error);
