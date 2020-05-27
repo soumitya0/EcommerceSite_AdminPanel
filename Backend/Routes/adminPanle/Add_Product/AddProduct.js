@@ -5,21 +5,24 @@ const { check, validationResult } = require("express-validator");
 const MiddleWare_Auth = require("../../../middleWare/auth");
 const SchemaProduct = require("../../../Models/Admin_Panel/ProductSchema/SchemaProduct");
 
-const bodyParser = require("body-parser");
 const path = require("path");
 const fs = require("fs");
 
-const multer = require("multer");
-const storage = multer.diskStorage({
-  filename: function (req, file, cb) {
-    cb(
-      null,
-      file.fieldname + "-" + Date.now() + path.extname(file.originalname), // use to have image-824722.jpg
-    );
-  },
-});
+// const multer = require("multer");
+// const storage = multer.diskStorage({
+//   destination: function (req, res, cb) {
+//     cb(null, "../client/myapp/public/uploads");
+//   },
 
-const upload = multer({ dest: "uploadsImage/", storage: storage });
+//   filename: function (req, file, cb) {
+//     cb(
+//       null,
+//       file.fieldname + "-" + Date.now() + path.extname(file.originalname), // use to have image-824722.jpg
+//     );
+//   },
+// });
+
+// const upload = multer({ storage: storage });
 
 // var uploads = multer({
 //   storage: multer.diskStorage({
@@ -44,10 +47,31 @@ const upload = multer({ dest: "uploadsImage/", storage: storage });
 //   },
 // });
 
-router.use(bodyParser.json());
-router.use(bodyParser.urlencoded({ extended: false }));
+const bodyParser = require("body-parser");
 
-router.use(express.static("uploadsImage"));
+const dotenv = require("dotenv");
+dotenv.config();
+// const cloudinary = require("cloudinary");
+require("../../../config/cloudinaryConfig");
+
+const multer = require("../../../Multer/multer");
+
+router.use(bodyParser.json());
+router.use(bodyParser.urlencoded({ extended: true }));
+
+// const cloudinary = require("../../../config/cloudinaryConfig");
+// const bodyParser = require("body-parser");
+// router.use(bodyParser.json());
+// router.use(bodyParser.urlencoded({ extended: false }));
+// router.use("*", cloudinaryConfig);
+//
+
+const cloudinary = require("cloudinary").v2;
+cloudinary.config({
+  cloud_name: "dx7a4fyl4",
+  api_key: "771857265828892",
+  api_secret: "TDoD_GGmItL18YyXreHbX-AetdM",
+});
 
 // @Api         POST /api/addproduct
 // @dec         Add Product
@@ -55,7 +79,7 @@ router.use(express.static("uploadsImage"));
 router.post(
   "/",
   [
-    upload.any(),
+    multer.single("image"),
     MiddleWare_Auth,
     [
       check("productName", "product Name required").not().isEmpty(),
@@ -71,7 +95,7 @@ router.post(
     console.log("req.body"); //form fields
     console.log(req.body);
     console.log("req.file");
-    console.log(req.files); //form files
+    console.log(req.file); //form files
 
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -89,7 +113,12 @@ router.post(
       stock,
     } = req.body;
 
+    const result = await cloudinary.uploader.upload(req.file.path);
+
+    console.log(result, "result");
     try {
+      console.log("reult Cloudinary", result);
+
       const newProduct = new SchemaProduct({
         productName: productName,
         productDescrption: productDescrption,
@@ -99,7 +128,7 @@ router.post(
         priceWithWeight: priceWithWeight,
         productMaxSellingWeight: productMaxSellingWeight,
         stock: stock,
-        productImage: req.files[0].filename,
+        productImage: result.secure_url,
       });
       const contact = await newProduct.save();
       res.json(contact);
