@@ -4,7 +4,7 @@ import "./SlideItemStyle.css";
 function SlideItem(props) {
   return (
     <div className="item-slide">
-      <img src={props.imageUrl} />
+      <img className="slideItemSlide" src={props.imageUrl} />
     </div>
   );
 }

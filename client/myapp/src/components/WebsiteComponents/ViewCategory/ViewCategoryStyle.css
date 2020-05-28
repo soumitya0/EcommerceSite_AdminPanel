@@ -1,0 +1,10 @@
+.Category-Grid-Product {
+  margin-top: 80px;
+  margin-left: 50px;
+  width: auto;
+  height: auto;
+  display: grid;
+  grid-template-columns: 15% 15% 15% 15% 15%;
+  grid-column-gap: 5%;
+  grid-row-gap: 8%;
+}

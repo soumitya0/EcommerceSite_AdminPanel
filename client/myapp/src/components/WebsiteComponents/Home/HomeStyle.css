@@ -1,0 +1,7 @@
+.CategoryViewGrid {
+  margin: 50px 150px;
+  height: 80px;
+  width: auto;
+  display: grid;
+  grid-template-columns: repeat(7, 150px);
+}

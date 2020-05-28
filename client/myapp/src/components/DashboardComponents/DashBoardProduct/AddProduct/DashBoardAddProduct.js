@@ -215,6 +215,13 @@ class DashBoardAddProduct extends Component {
                     <option value="250grm">250grm</option>
                     <option value="1kg">1kg</option>
                     <option value="5kg">5kg</option>
+
+                    <option value="500ml">500ml</option>
+                    <option value="1L">1L</option>
+                    <option value="5L">5L</option>
+
+                    <option value="50gm">50gm</option>
+                    <option value="100gm">100gm</option>
                   </select>
                 </div>
 

@@ -20,7 +20,7 @@ class ViewProduct extends Component {
     console.log(localStorage.getItem("UserToken"));
 
     axios
-      .get("https://still-peak-54145.herokuapp.com/api/addproduct/data") //getting all product
+      .get(this.props.api) //getting all product
       .then((res) => {
         console.log(res.data);
         this.setState({
@@ -47,9 +47,11 @@ class ViewProduct extends Component {
             ? this.props.searchData.map((product, index) => (
                 <ViewProductItem key={index} item={product} />
               ))
-            : this.state.allProduct.map((product, index) => (
-                <ViewProductItem key={index} item={product} />
-              ))}
+            : this.state.allProduct
+                .slice(0, 4)
+                .map((product, index) => (
+                  <ViewProductItem key={index} item={product} />
+                ))}
         </div>
       </Fragment>
     );

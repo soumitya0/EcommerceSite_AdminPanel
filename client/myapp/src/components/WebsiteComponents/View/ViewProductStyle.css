@@ -5,4 +5,6 @@
   grid-template-columns: 20% 20% 20% 20%;
   grid-column-gap: 5%;
   grid-row-gap: 8%;
+  margin-top: 50px;
+  margin-left: 30px;
 }

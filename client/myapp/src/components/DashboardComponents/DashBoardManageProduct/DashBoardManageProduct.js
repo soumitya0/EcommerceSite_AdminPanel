@@ -162,7 +162,6 @@ class DashBoardManageProduct extends Component {
       })
       .catch((error) => {
         console.log(error);
-        console.log(error.response.data);
       });
   }
 

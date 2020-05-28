@@ -4,6 +4,8 @@ const SchemaCategory = require("../../../Models/Admin_Panel/categorySchema/Schem
 const MiddleWare_Auth = require("../../../middleWare/auth");
 const { check, validationResult } = require("express-validator");
 
+const SchemaProduct = require("../../../Models/Admin_Panel/ProductSchema/SchemaProduct");
+
 // @Api         POST /api/category
 // @dec         Add Category
 // access       Private
@@ -82,6 +84,27 @@ router.delete("/:id", MiddleWare_Auth, async (req, res) => {
   } catch (error) {
     console.error(error.message);
     res.status(500).send("server error ");
+  }
+});
+
+// @Api         GET /api/category/:categoryName
+// @dec         getting category name
+// access       public
+
+router.get("/:categoryName", async (req, res) => {
+  try {
+    const data = await SchemaProduct.find({
+      productCategory: req.params.categoryName,
+    });
+
+    if (!data) {
+      return res.status(400).json({ msg: "category Not Found " });
+    } else {
+      res.json(data);
+    }
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("server error");
   }
 });
 

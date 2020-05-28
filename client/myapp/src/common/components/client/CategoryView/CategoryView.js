@@ -2,31 +2,55 @@ import React, { Component, Fragment } from "react";
 
 import "./CategoryViewStyle.css";
 
+import axios from "axios";
+
 class CategoryView extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      api: this.props.api,
+      data: [],
+    };
+  }
+
+  componentDidMount() {
+    console.log(this.state.api, "API");
+
+    axios
+      .get(this.state.api)
+      .then((res) => {
+        console.log(res.data, "CATAGORY DATA ");
+        this.setState({
+          data: res.data,
+        });
+      })
+      .then((err) => {
+        console.log(err);
+      });
+  }
+
   render() {
+    console.log(this.state.api, "API STATE");
     return (
       <Fragment>
         <div className="CategoryGrid">
           <div className="CategoryView-img">
             <div className="CategoryViewImage">
-              <img
-                className="CategoryImg"
-                src="https://res.cloudinary.com/dx7a4fyl4/image/upload/v1590550370/ookikrckus9n7v3h7dfd.jpg"
-              />
+              <img className="CategoryImg" src={this.props.imageUrl} />
             </div>
           </div>
 
           <div className="CategoryView-name">
-            <p className="CategoryView-nameText">Grocery & Staples</p>
+            <p className="CategoryView-nameText">{this.props.Categoryname}</p>
           </div>
           <div className="CategoryView-ItemCount">
             <p className="CategoryView-ItemCountText">
               {" "}
-              505 <span>item</span>
+              {this.state.data.length} <span>item</span>
             </p>
           </div>
         </div>
-        <h1>SOUMITY</h1>
       </Fragment>
     );
   }
