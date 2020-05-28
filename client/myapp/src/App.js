@@ -10,6 +10,7 @@ import Dashboard from "./components/DashboardComponents/DashBoard/Dashboard";
 import DashBoardLogin from "./components/DashboardComponents/DashBoardLogin/DashBoardLogin";
 import Try from "./checkComp/Try";
 import Home from "./components/WebsiteComponents/Home/Home";
+import SlideShowDisplay from "./components/SLIDESHOW/SlideShowDisplay";
 
 function App() {
   return (

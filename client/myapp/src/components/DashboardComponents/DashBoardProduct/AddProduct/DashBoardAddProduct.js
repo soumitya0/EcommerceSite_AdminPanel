@@ -73,7 +73,7 @@ class DashBoardAddProduct extends Component {
     console.log(localStorage.getItem("AdminLogin"));
 
     const bodyData = {
-      productName: this.state.productName,
+      productName: this.state.productName.toLowerCase(),
       productDescrption: this.state.productDescrption,
       productCategory: this.state.productCategory,
       productWeight: this.state.productWeight,
@@ -84,12 +84,13 @@ class DashBoardAddProduct extends Component {
     };
 
     console.log(bodyData);
+    console.log(bodyData.productName);
     const fd = new FormData();
     fd.append("Content-Type", "multipart/form-data");
 
     fd.append("image", this.state.Selectedfile, this.state.Selectedfile.name);
 
-    fd.append("productName", this.state.productName);
+    fd.append("productName", this.state.productName.toLowerCase());
     fd.append("productDescrption", this.state.productDescrption);
     fd.append("productCategory", this.state.productCategory);
     fd.append("productWeight", this.state.productWeight);
@@ -113,7 +114,6 @@ class DashBoardAddProduct extends Component {
         "https://still-peak-54145.herokuapp.com/api/addproduct",
         fd,
         axiosConfig,
-        bodyData,
       )
       .then((res) => {
         console.log("UI");
@@ -252,7 +252,7 @@ class DashBoardAddProduct extends Component {
                     onChange={this.changeHandle}
                   >
                     <option>Choose Stock</option>
-                    <option value="Avaliable">Avaliable</option>
+                    <option value="available">available</option>
                     <option value="OutofStock">Out of Stock</option>
                   </select>
                 </div>

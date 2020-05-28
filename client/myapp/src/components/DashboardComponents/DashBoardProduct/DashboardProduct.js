@@ -59,7 +59,7 @@ class DashboardProduct extends Component {
       console.log("this is Out of Stock change to Availabel");
 
       let bodyData = {
-        stock: "Avaliable",
+        stock: "available",
       };
 
       axios
@@ -75,7 +75,7 @@ class DashboardProduct extends Component {
         .catch((error) => {
           console.log(error);
         });
-    } else if (getStock == "Avaliable") {
+    } else if (getStock == "available") {
       console.log("this is Available change to Out of Stock");
       let bodyData = {
         stock: "OutofStock",

@@ -275,7 +275,7 @@ class EditProduct extends Component {
                 value={this.state.stock}
               >
                 <option>Choose Stock</option>
-                <option value="Avaliable">Avaliable</option>
+                <option value="available">available</option>
                 <option value="OutofStock">Out of Stock</option>
               </select>
             </div>

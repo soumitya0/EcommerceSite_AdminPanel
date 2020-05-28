@@ -14,6 +14,7 @@ import Myorder from "../Myorder/Myorder";
 import ProductView from "../../../common/components/client/ProductView/ProductView";
 import CategoryList from "../../DashboardComponents/DashboardCategory/CategoryList.js/CategoryList";
 import CategoryView from "../../../common/components/client/CategoryView/CategoryView";
+import SlideShowDisplay from "../../SLIDESHOW/SlideShowDisplay";
 const Home = () => {
   const [data, setData] = useState(0);
 
@@ -28,6 +29,14 @@ const Home = () => {
       <BrowserRouter>
         <div>
           <TopBar sendData={getData} />
+        </div>
+
+        <div
+          style={{ backgroundColor: "Black", height: "100px", width: "100%" }}
+        ></div>
+
+        <div>
+          <SlideShowDisplay />
         </div>
 
         <Route exact path="/">
@@ -57,9 +66,9 @@ const Home = () => {
         </Route>
       </BrowserRouter>
 
-      <ProductView />
+      {/* <ProductView />
 
-      <CategoryView />
+      <CategoryView /> */}
     </Fragment>
   );
 };

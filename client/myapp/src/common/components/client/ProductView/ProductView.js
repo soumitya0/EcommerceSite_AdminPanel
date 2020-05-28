@@ -7,6 +7,7 @@ class ProductView extends Component {
     this.state = {
       stock: "In Stock",
       weight: "1kg",
+      data: this.props.item,
     };
   }
 
@@ -25,9 +26,7 @@ class ProductView extends Component {
             <div className="ProductView-img">
               <img
                 className="ProductImage"
-                src={
-                  process.env.PUBLIC_URL + `/uploads/image-1588961030836.jpg`
-                }
+                src="https://res.cloudinary.com/dx7a4fyl4/image/upload/v1590550370/ookikrckus9n7v3h7dfd.jpg"
               />
             </div>
             <div className="ProductView-Info">
@@ -65,8 +64,6 @@ class ProductView extends Component {
             </div>
           </div>
         </div>
-
-        <h1>SOUMITYA</h1>
       </Fragment>
     );
   }

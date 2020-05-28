@@ -98,7 +98,7 @@ class DashBoardManageProduct extends Component {
       console.log("this is Out of Stock change to Availabel");
 
       let bodyData = {
-        stock: "Avaliable",
+        stock: "available",
       };
 
       axios
@@ -115,7 +115,7 @@ class DashBoardManageProduct extends Component {
           console.log(error);
           console.log(error.response.data);
         });
-    } else if (getStock == "Avaliable") {
+    } else if (getStock == "available") {
       console.log("this is Available change to Out of Stock");
       let bodyData = {
         stock: "OutofStock",

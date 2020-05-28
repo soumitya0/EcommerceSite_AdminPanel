@@ -11,9 +11,7 @@ class CategoryView extends Component {
             <div className="CategoryViewImage">
               <img
                 className="CategoryImg"
-                src={
-                  process.env.PUBLIC_URL + `/uploads/image-1588961030836.jpg`
-                }
+                src="https://res.cloudinary.com/dx7a4fyl4/image/upload/v1590550370/ookikrckus9n7v3h7dfd.jpg"
               />
             </div>
           </div>

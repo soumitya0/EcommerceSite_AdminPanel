@@ -44,7 +44,7 @@ class TopBar extends Component {
     e.preventDefault();
 
     axios(
-      `https://still-peak-54145.herokuapp.com/api/search/${this.state.find}`,
+      `https://still-peak-54145.herokuapp.com/api/search/${this.state.find.toLowerCase()}`,
     )
       .then((res) => {
         console.log(res.data);

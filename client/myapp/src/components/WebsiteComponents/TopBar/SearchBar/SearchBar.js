@@ -26,9 +26,10 @@ class SearchBar extends Component {
   onSubmit = (e) => {
     e.preventDefault();
 
-    axios(
-      `https://still-peak-54145.herokuapp.com/api/search/${this.state.find}`,
-    )
+    let text = this.state.find.toLowerCase();
+    console.log(text, "SEARCH ELEMENT");
+
+    axios(`https://still-peak-54145.herokuapp.com/api/search/${text}`)
       .then((res) => {
         console.log(res.data);
         this.setState({
