@@ -3,6 +3,7 @@ import axios from "axios";
 
 import "./RegisterStyle.css";
 import { Redirect } from "react-router-dom";
+import Alert from "../../../common/components/Alert/Alert";
 
 class Register extends Component {
   constructor(props) {
@@ -15,6 +16,9 @@ class Register extends Component {
       confirmPassword: "",
       register: false,
       stor: "",
+
+      AlertMsg: "",
+      AlertMsgType: "",
     };
   }
 
@@ -44,16 +48,31 @@ class Register extends Component {
         })
         .then((res) => {
           console.log(res.data);
+
           this.setState({
+            AlertMsg: res.data.msg,
+            AlertMsgType: "success",
             register: true,
           });
-
-          alert("Register successful  Now Login");
+          setTimeout(() => {
+            this.setState({
+              AlertMsg: "",
+            });
+          }, 3000);
         })
 
         .catch((error) => {
           console.log(error);
           console.log(error.response.data);
+          this.setState({
+            AlertMsg: error.response.data.msg,
+            AlertMsgType: "danger",
+          });
+          setTimeout(() => {
+            this.setState({
+              AlertMsg: "",
+            });
+          }, 3000);
         });
     } else {
       alert("Password fail");
@@ -70,6 +89,16 @@ class Register extends Component {
   render() {
     return (
       <Fragment>
+        <div className="alertDivSection">
+          {this.state.AlertMsg != "" ? (
+            <Alert
+              msg={this.state.AlertMsg}
+              msgType={this.state.AlertMsgType}
+              marginDetail="50px 0px;"
+            />
+          ) : null}
+        </div>
+
         <div className="LoginGrid">
           <div className="GridLoginImg">
             <img

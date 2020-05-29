@@ -3,6 +3,8 @@ import "./topBarStyle.css";
 
 import { Link } from "react-router-dom";
 import axios from "axios";
+
+import { Redirect } from "react-router-dom";
 import Account from "../Account/Account";
 
 class TopBar extends Component {
@@ -74,18 +76,29 @@ class TopBar extends Component {
     return (
       <Fragment>
         <div className="Client_TopbarGrid">
-          <div className="itemImg">
-            <img
-              className="ImgTop"
-              src={require("../../../assets/Website/Home.png")}
-              alt="home"
-            />
-          </div>
+          <Link to="/">
+            <div className="itemImg">
+              <img
+                className="ImgTop"
+                src={require("../../../assets/Website/Home.png")}
+                alt="home"
+              />
+            </div>
+          </Link>
 
           <div className="mapMarkerLoaction">
-            {/* <i class=" mapMarker fas fa-map-marker-alt  ">
-              {this.state.userLoaction}
-            </i> */}
+            <h2 style={{ color: "#fff" }}>
+              {" "}
+              Soumitya <sup>Store</sup>
+            </h2>
+            <h6
+              style={{
+                color: "#51DB94",
+                marginLeft: "10px",
+              }}
+            >
+              Contact us : +91 9547147881
+            </h6>
           </div>
           <div>
             <p>

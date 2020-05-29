@@ -4,6 +4,7 @@ import "./CategoryViewStyle.css";
 
 import axios from "axios";
 
+import { Link } from "react-router-dom";
 class CategoryView extends Component {
   constructor(props) {
     super(props);

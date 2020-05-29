@@ -8,14 +8,16 @@
   background-color: rgb(72, 77, 79);
 }
 .itemImg {
-  place-self: center;
+  place-self: end;
+  margin: 10px 50px;
 }
 .ImgTop {
   height: 50px;
+  cursor: pointer;
 }
 
 .mapMarkerLoaction {
-  place-self: center;
+  margin: 10px 10px;
 }
 
 .mapMarker {
