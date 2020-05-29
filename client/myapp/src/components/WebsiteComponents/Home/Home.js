@@ -34,59 +34,62 @@ const Home = () => {
           <TopBar sendData={getData} />
         </div>
 
-        <div className="CategoryViewGrid">
-          <Link to={`/category/Fruits`}>
-            <CategoryView
-              Categoryname="Fruits"
-              api="https://still-peak-54145.herokuapp.com/api/category/Fruits"
-              imageUrl="https://image.flaticon.com/icons/svg/457/457843.svg"
-            />
-          </Link>
-          <Link to={`/category/Vegetables`}>
-            <CategoryView
-              Categoryname="Vegetables"
-              api="https://still-peak-54145.herokuapp.com/api/category/Vegetables"
-              imageUrl="https://image.flaticon.com/icons/svg/2909/2909841.svg"
-            />
-          </Link>{" "}
-          <Link to={`/category/foodgrains`}>
-            <CategoryView
-              Categoryname="foodgrains"
-              api="https://still-peak-54145.herokuapp.com/api/category/foodgrains"
-              imageUrl="https://image.flaticon.com/icons/svg/616/616428.svg"
-            />{" "}
-          </Link>
-          <Link to={`/category/oil`}>
-            {" "}
-            <CategoryView
-              Categoryname="oil"
-              api="https://still-peak-54145.herokuapp.com/api/category/oil"
-              imageUrl="https://image.flaticon.com/icons/svg/2843/2843159.svg"
-            />{" "}
-          </Link>
-          <Link to={`/category/masala`}>
-            {" "}
-            <CategoryView
-              Categoryname="masala"
-              api="https://still-peak-54145.herokuapp.com/api/category/masala"
-              imageUrl="https://image.flaticon.com/icons/svg/2160/2160302.svg"
-            />{" "}
-          </Link>
-          <Link to={`/category/dry fruits`}>
-            <CategoryView
-              Categoryname="dry fruits"
-              api="https://still-peak-54145.herokuapp.com/api/category/dry fruits"
-              imageUrl="https://image.flaticon.com/icons/svg/2224/2224240.svg"
-            />{" "}
-          </Link>
-          <Link to={`/category/dairy`}>
-            <CategoryView
-              Categoryname="dairy"
-              api="https://still-peak-54145.herokuapp.com/api/category/dairy"
-              imageUrl="https://image.flaticon.com/icons/svg/2674/2674505.svg"
-            />
-          </Link>
-        </div>
+        <Route exact path="/">
+          <div className="CategoryViewGrid">
+            <Link to={`/category/Fruits`}>
+              <CategoryView
+                Categoryname="Fruits"
+                api="https://still-peak-54145.herokuapp.com/api/category/Fruits"
+                imageUrl="https://image.flaticon.com/icons/svg/457/457843.svg"
+              />
+            </Link>
+            <Link to={`/category/Vegetables`}>
+              <CategoryView
+                Categoryname="Vegetables"
+                api="https://still-peak-54145.herokuapp.com/api/category/Vegetables"
+                imageUrl="https://image.flaticon.com/icons/svg/2909/2909841.svg"
+              />
+            </Link>{" "}
+            <Link to={`/category/foodgrains`}>
+              <CategoryView
+                Categoryname="foodgrains"
+                api="https://still-peak-54145.herokuapp.com/api/category/foodgrains"
+                imageUrl="https://image.flaticon.com/icons/svg/616/616428.svg"
+              />{" "}
+            </Link>
+            <Link to={`/category/oil`}>
+              {" "}
+              <CategoryView
+                Categoryname="oil"
+                api="https://still-peak-54145.herokuapp.com/api/category/oil"
+                imageUrl="https://image.flaticon.com/icons/svg/2843/2843159.svg"
+              />{" "}
+            </Link>
+            <Link to={`/category/masala`}>
+              {" "}
+              <CategoryView
+                Categoryname="masala"
+                api="https://still-peak-54145.herokuapp.com/api/category/masala"
+                imageUrl="https://image.flaticon.com/icons/svg/2160/2160302.svg"
+              />{" "}
+            </Link>
+            <Link to={`/category/dry fruits`}>
+              <CategoryView
+                Categoryname="dry fruits"
+                api="https://still-peak-54145.herokuapp.com/api/category/dry fruits"
+                imageUrl="https://image.flaticon.com/icons/svg/2224/2224240.svg"
+              />{" "}
+            </Link>
+            <Link to={`/category/dairy`}>
+              <CategoryView
+                Categoryname="dairy"
+                api="https://still-peak-54145.herokuapp.com/api/category/dairy"
+                imageUrl="https://image.flaticon.com/icons/svg/2674/2674505.svg"
+              />
+            </Link>
+          </div>
+        </Route>
+
         <Route exact path="/">
           <SlideShowDisplay />
         </Route>

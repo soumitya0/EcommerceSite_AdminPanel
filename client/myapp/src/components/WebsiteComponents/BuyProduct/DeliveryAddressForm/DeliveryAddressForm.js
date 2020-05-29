@@ -57,7 +57,7 @@ class DeliveryAddressForm extends Component {
 
                 <input
                   className="formInput"
-                  type="number"
+                  type="tel"
                   minLength="10"
                   maxLength="10"
                   name="phoneNumber"

@@ -20,8 +20,11 @@ class Thankyou extends Component {
     //HERE DATA IS NOT COMMING
     //    this.getInstaMojoResponse();
 
+    console.log("conponent did mount");
+
     var dataInstaMojo = "";
     const params = new URLSearchParams(window.location.search);
+    console.log(params, "PARAMS");
     for (const param of params) {
       console.log(JSON.parse(param[1]));
 
@@ -33,7 +36,10 @@ class Thankyou extends Component {
     console.log("i am componentDid mount ");
     console.log(this.state);
 
+    console.log(localStorage.getItem("OrderData"));
+
     if (localStorage.getItem("OrderData") != null) {
+      console.log("yes");
       const user = JSON.parse(localStorage.getItem("OrderData"));
       console.log(user, "JSON_PArse");
 

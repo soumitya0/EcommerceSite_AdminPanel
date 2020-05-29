@@ -259,3 +259,6 @@ th {
   vertical-align: middle;
   padding: 12px;
 }
+Link {
+  text-decoration: none;
+}

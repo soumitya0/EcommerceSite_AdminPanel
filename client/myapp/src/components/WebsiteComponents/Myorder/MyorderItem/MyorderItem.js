@@ -30,7 +30,7 @@ class MyorderItem extends Component {
           <div className="ProductInfo">
             <div className="ProductInfo-Image">
               <img
-                src={process.env.PUBLIC_URL + `/uploads/${this.state.imageUrl}`}
+                src={this.state.imageUrl}
                 style={{
                   height: "100%",
                   width: "100%",

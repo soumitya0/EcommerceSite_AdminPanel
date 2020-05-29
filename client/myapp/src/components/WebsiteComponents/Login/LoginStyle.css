@@ -1,3 +1,9 @@
+.alertDivSection {
+  height: 50px;
+  width: 50%;
+  margin: 20px auto;
+}
+
 .LoginGrid {
   width: 65%;
   margin: 50px auto;

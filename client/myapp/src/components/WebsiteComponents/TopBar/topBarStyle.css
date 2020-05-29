@@ -44,3 +44,26 @@
   opacity: 0.5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
+
+.myorder_grid {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 70% 30%;
+}
+
+.basketImg {
+  justify-self: center;
+  place-self: center;
+  color: #eee;
+  font-size: 26px;
+  text-decoration: none;
+}
+
+.myorderText {
+  justify-self: center;
+  place-self: center;
+  color: #fff;
+  text-decoration: none;
+  margin-top: -20px;
+}

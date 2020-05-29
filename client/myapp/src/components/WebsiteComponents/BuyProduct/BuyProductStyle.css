@@ -36,3 +36,7 @@
   color: #fff;
   font-size: 17px;
 }
+
+.checkOutBtn:active {
+  transform: translateY(4px);
+}

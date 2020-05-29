@@ -52,10 +52,7 @@ class ProductPreview extends Component {
           <div>
             <img
               className="imageLayoutthree"
-              src={
-                process.env.PUBLIC_URL +
-                `/uploads/${this.state.product_Data.productImage}`
-              }
+              src={this.state.product_Data.productImage}
             />
           </div>
 

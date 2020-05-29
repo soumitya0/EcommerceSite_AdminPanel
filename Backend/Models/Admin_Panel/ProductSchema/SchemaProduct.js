@@ -45,4 +45,4 @@ const SchemaProduct = mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Product", Scheroduct);
+module.exports = mongoose.model("Product", SchemaProduct);

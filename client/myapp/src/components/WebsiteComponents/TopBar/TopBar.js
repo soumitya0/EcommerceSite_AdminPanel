@@ -15,6 +15,8 @@ class TopBar extends Component {
     showMenu: false,
     find: "",
     data: [],
+
+    login: false,
   };
 
   showMenu = (event) => {
@@ -39,6 +41,8 @@ class TopBar extends Component {
 
     console.log(this.state.find);
   };
+
+  myOrder = () => {};
 
   onSubmit = (e) => {
     e.preventDefault();
@@ -114,7 +118,7 @@ class TopBar extends Component {
 
             {localStorage.getItem("UserToken") ? (
               <div className="Register_topbar" onClick={this.showMenu}>
-                <h6>SOUMITYA</h6>
+                <h6>Welcome to </h6>
 
                 <h6>
                   MyAccount{" "}
@@ -164,7 +168,14 @@ class TopBar extends Component {
           </div>
 
           {/* ADD TO CART */}
-          <div></div>
+          {localStorage.getItem("UserToken") != null ? (
+            <Link to="/myOrder">
+              <div className="myorder_grid">
+                <i class="fas fa-shopping-basket basketImg"></i>
+                <h5 className="myorderText">My Order</h5>
+              </div>
+            </Link>
+          ) : null}
         </div>
       </Fragment>
     );

@@ -8,6 +8,7 @@ import { Redirect } from "react-router-dom";
 //Sechema
 
 import "./AccountStyle.css";
+import Alert from "../../../common/components/Alert/Alert";
 
 class Account extends Component {
   constructor(props) {

@@ -8,42 +8,13 @@ const { check, validationResult } = require("express-validator");
 
 const MiddleWare_Auth = require("../../../middleWare/auth");
 
-const multer = require("multer");
-const bodyParser = require("body-parser");
 const path = require("path");
 const fs = require("fs");
 
-const dir = "../client/myapp/public/uploads";
-
-var uploads = multer({
-  storage: multer.diskStorage({
-    destination: function (req, res, cb) {
-      if (!fs.existsSync(dir)) {
-        fs.mkdirSync(dir);
-      }
-      cb(null, "../client/myapp/public/uploads");
-    },
-
-    filename: function (req, file, callback) {
-      callback(
-        null,
-        file.fieldname + "-" + Date.now() + path.extname(file.originalname), // use to have image-824722.jpg
-      );
-    },
-  }),
-
-  fileFilter: function (req, file, cb) {
-    const ext = path.extname(file.originalname);
-    if (ext !== ".png" && ext !== ".jpg" && ext !== ".gif" && ext !== ".jpeg") {
-      return callback(/*res.end('Only images are allowed')*/ null, false);
-    }
-    cb(null, true);
-  },
-});
-
+const multer = require("../../../Multer/multer");
+const bodyParser = require("body-parser");
 router.use(bodyParser.json());
-router.use(bodyParser.urlencoded({ extended: false }));
-router.use(express.static("uploads"));
+router.use(bodyParser.urlencoded({ extended: true }));
 
 // @Api         GET api/product/stock/available
 // @dec         Display Stock AVALIABLE product
@@ -79,14 +50,19 @@ router.get("/stock/OutofStock", async (req, res) => {
     res.status(500).send("server error");
   }
 });
-
+const cloudinary = require("cloudinary").v2;
+cloudinary.config({
+  cloud_name: "dx7a4fyl4",
+  api_key: "771857265828892",
+  api_secret: "TDoD_GGmItL18YyXreHbX-AetdM",
+});
 // @Api         PUT api/product/editProduct/:id
 // @dec         Edit Product
 // access       Private
 router.put(
   "/editProduct/:id",
   [
-    uploads.any(),
+    multer.single("image"),
     MiddleWare_Auth,
     [
       check("productName", "product Name required").not().isEmpty(),
@@ -102,7 +78,7 @@ router.put(
     console.log("req.body"); //form fields
     console.log(req.body);
     console.log("req.file");
-    console.log(req.files); //form files
+    console.log(req.file); //form files
 
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -131,8 +107,10 @@ router.put(
       stock,
     };
 
-    if (req.files) {
-      const productImage = req.files[0].filename;
+    const result = await cloudinary.uploader.upload(req.file.path);
+
+    if (req.file) {
+      const productImage = result.secure_url;
       console.log(productImage, "IMAGE");
       updates.productImage = productImage;
     }

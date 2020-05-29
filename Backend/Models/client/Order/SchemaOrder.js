@@ -21,7 +21,7 @@ const SchemaOrder = mongoose.Schema({
   },
 
   ReciverHouseNo: {
-    type: Number,
+    type: String,
     require: true,
   },
 

@@ -69,7 +69,7 @@ const BuyProduct = (props) => {
       console.log(globalObj, "globalObj");
 
       console.log("i am click");
-      console.log(reciverdata, "reci.verData"); //
+      console.log(reciverdata, "reciverData"); //
 
       console.log(Product_Data, "Product_Data"); //
 
@@ -82,7 +82,9 @@ const BuyProduct = (props) => {
         buyer_name: Userdata.UserName,
         email: Userdata.UserEmail,
         user_id: Userdata._id,
-        redirect_url: `http://localhost:8000/api/bid/callback?user_id=${Userdata._id}`,
+        buyer_phone: reciverdata.phoneNumber,
+
+        redirect_url: `https://still-peak-54145.herokuapp.com/api/bid/callback?user_id=${Userdata._id}`,
         weebhook_url: "/webhook/",
       };
 

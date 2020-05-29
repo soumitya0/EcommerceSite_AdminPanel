@@ -185,10 +185,7 @@ class EditProduct extends Component {
                 <div className="formIcon">
                   {this.state.imgRef == "" ? (
                     <img
-                      src={
-                        process.env.PUBLIC_URL +
-                        `/uploads/${this.state.selectImg}`
-                      }
+                      src={this.state.selectImg}
                       style={{
                         height: "150px",
                         width: "150px",

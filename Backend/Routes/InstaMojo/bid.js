@@ -63,7 +63,8 @@ router.get("/callback", async (req, res) => {
     console.log(responseInstaMojo, "STRINGIFY");
 
     return res.redirect(
-      "http://localhost:3000/payment-complete/?valid=" + dataInstaMojo,
+      "https://immense-brushlands-08159.herokuapp.com/payment-complete/?valid=" +
+        dataInstaMojo,
     );
   }
 });
