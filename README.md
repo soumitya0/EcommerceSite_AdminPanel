@@ -57,6 +57,7 @@ ADMIN PAGE :https://immense-brushlands-08159.herokuapp.com/DashboardLogin  (Sorr
 # Track Details
  (Change the Status of Product (Painding, onWay, Delivered))
 ![alt text](https://github.com/soumitya0/EcommerceSite_AdminPanel/blob/master/TRACKORDERDETAILS.PNG)<br>
+![alt text](https://github.com/soumitya0/EcommerceSite_AdminPanel/blob/master/TRACKDETAILS.PNG)<br>
 
 
 
