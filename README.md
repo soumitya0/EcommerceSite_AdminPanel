@@ -19,7 +19,14 @@ ADMIN PAGE :https://immense-brushlands-08159.herokuapp.com/DashboardLogin  (Sorr
 
 
 # Gallery
-  #HOME PAGE
+  # HOME PAGE
 ![alt text](https://github.com/soumitya0/EcommerceSite_AdminPanel/blob/master/1.PNG)<br>
+![alt text](https://github.com/soumitya0/EcommerceSite_AdminPanel/blob/master/2.PNG)<br>
 
+  # ADMIN PAGE
+![alt text](https://github.com/soumitya0/EcommerceSite_AdminPanel/blob/master/ADMIN%20Panel.PNG)<br>
 
+![alt text](https://github.com/soumitya0/EcommerceSite_AdminPanel/blob/master/Not%20Avaliable.PNG)<br>
+
+# BUY NOW
+![alt text](https://github.com/soumitya0/EcommerceSite_AdminPanel/blob/master/Buy%20Now.PNG)<br>
