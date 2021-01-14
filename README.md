@@ -32,7 +32,7 @@ ADMIN PAGE :https://immense-brushlands-08159.herokuapp.com/DashboardLogin  (Sorr
 # BUY NOW
 ![alt text](https://github.com/soumitya0/EcommerceSite_AdminPanel/blob/master/Buy%20Now.PNG)<br>
 
-# Payment Gatway
+# Payment Gatway from Instamojo
 ![alt text](https://github.com/soumitya0/EcommerceSite_AdminPanel/blob/master/PaymentGatway.PNG)<br>
 
 
