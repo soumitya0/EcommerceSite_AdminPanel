@@ -26,7 +26,37 @@ ADMIN PAGE :https://immense-brushlands-08159.herokuapp.com/DashboardLogin  (Sorr
   # ADMIN PAGE
 ![alt text](https://github.com/soumitya0/EcommerceSite_AdminPanel/blob/master/ADMIN%20Panel.PNG)<br>
 
+# Not Avalible Product
 ![alt text](https://github.com/soumitya0/EcommerceSite_AdminPanel/blob/master/Not%20Avaliable.PNG)<br>
 
 # BUY NOW
 ![alt text](https://github.com/soumitya0/EcommerceSite_AdminPanel/blob/master/Buy%20Now.PNG)<br>
+
+# Payment Gatway
+![alt text](https://github.com/soumitya0/EcommerceSite_AdminPanel/blob/master/PaymentGatway.PNG)<br>
+
+
+# Add Product 
+![alt text](https://github.com/soumitya0/EcommerceSite_AdminPanel/blob/master/ADD_PRODUCT.PNG)<br>
+
+
+# Category Details
+![alt text](https://github.com/soumitya0/EcommerceSite_AdminPanel/blob/master/CATEGORY%20DETAILS.PNG)<br>
+
+
+# Update Product
+![alt text](https://github.com/soumitya0/EcommerceSite_AdminPanel/blob/master/EDITPRODUCT.PNG)<br>
+
+
+# Manage Product
+![alt text](https://github.com/soumitya0/EcommerceSite_AdminPanel/blob/master/MANAGE_PRODUCT.PNG)<br>
+
+# Out of STOCK PRODUCT  and PANDING ORDERS details
+![alt text](https://github.com/soumitya0/EcommerceSite_AdminPanel/blob/master/OUT_OF_STOCK%20PANDING_ORDER.PNG)<br>
+
+# Track Details
+ (Change the Status of Product (Painding, onWay, Delivered))
+![alt text](https://github.com/soumitya0/EcommerceSite_AdminPanel/blob/master/TRACKORDERDETAILS.PNG)<br>
+
+
+
